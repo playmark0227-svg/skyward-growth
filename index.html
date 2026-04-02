@@ -323,6 +323,49 @@
       line-height: 2;
     }
 
+
+    /* ===== CONCEPT GRID ===== */
+    .concept-grid {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .concept-item {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      border-top: 3px solid var(--green-primary);
+    }
+
+    .concept-icon {
+      font-size: 32px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .concept-item strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
+
+    .concept-item p {
+      font-size: 13px;
+      color: var(--text-gray);
+      line-height: 1.8;
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ===== PHILOSOPHY ===== */
     #philosophy {
       background: var(--bg-light);
@@ -779,17 +822,30 @@
       <h2 class="section-title">企業理念</h2>
       <div class="philosophy-text">
         <p>
-          私たちは、<strong>北海道・北見</strong>を拠点に、地域の可能性を最大限に引き出す事業を展開しています。
+          株式会社Skyward Growthは、地域の皆様の<strong>「北見市の挑戦」</strong>を総合的にサポートする会社です。<br>
+          モビリティからデジタルマーケティングまで、幅広いサービスで<strong>地域活性化</strong>に貢献します。
         </p>
-        <p style="margin-top: 16px;">
-          モビリティ、デジタルマーケティング、映像制作——<br>
-          多角的なアプローチで地域の課題を解決し、<br>
-          <strong>持続可能な成長</strong>と<strong>地域共創</strong>の新しいカタチを創り出します。
+        <p style="margin-top: 24px; font-size: 15px; color: var(--text-gray);">
+          クルマも、SNSも、空撮も。<br>地域の挑戦には、SGの挑戦。
         </p>
-        <p style="margin-top: 16px;">
-          北見から、空へ。<br>
-          地域と共に、高みを目指して。
-        </p>
+      </div>
+
+      <div class="concept-grid fade-in">
+        <div class="concept-item">
+          <span class="concept-icon">⚡</span>
+          <strong>地域密着で迅速対応</strong>
+          <p>北見を拠点に、地域に根ざした素早いサポートを提供します。</p>
+        </div>
+        <div class="concept-item">
+          <span class="concept-icon">🤝</span>
+          <strong>丸投げもできるサービス</strong>
+          <p>企画から運用まで、ワンストップでお任せいただけます。</p>
+        </div>
+        <div class="concept-item">
+          <span class="concept-icon">💡</span>
+          <strong>丁寧なヒアリングと提案力</strong>
+          <p>お客様のニーズに寄り添い、最適な解決策をご提案します。</p>
+        </div>
       </div>
     </div>
   </section>
@@ -809,9 +865,9 @@
           <p class="member-name-en">DAICHI FUJIMOTO</p>
           <div class="member-info">
             <p>株式会社Skyward Growth 創業者</p>
-            <p>北海道北見市を拠点に、モビリティ事業や<br>デジタルマーケティングなど多角的に事業を展開。</p>
+            <p>地域の皆様の「北見市の挑戦」を総合的にサポート。モビリティからデジタルマーケティングまで、幅広いサービスで地域活性化に貢献。</p>
             <p style="margin-top: 12px;">
-              Mobile: 080-5805-9408<br>
+              TEL: 080-5805-9408<br>
               <a href="mailto:daichi.fujimoto@skyward-growth.com">daichi.fujimoto@skyward-growth.com</a>
             </p>
           </div>
@@ -844,35 +900,35 @@
         <div class="business-card">
           <div class="business-icon">🚗</div>
           <h3>モビリティ事業</h3>
-          <p>カーシェアリング・レンタカーサービスを通じて、地域の移動をもっと自由に、もっと便利に。</p>
+          <p>レンタカー・カーシェアなど、地域の移動をトータルサポート。法人・個人問わずご利用いただけます。長期利用やイベントなどでの特殊利用も相談可能です。</p>
           <a href="#contact" class="btn-more">お問い合わせ</a>
         </div>
 
         <div class="business-card">
           <div class="business-icon">📱</div>
           <h3>SNS総合支援事業</h3>
-          <p>SNSマーケティングの企画から運用まで、デジタルの力で地域のビジネスを加速させます。</p>
+          <p>SNS運用代行・コンテンツ制作・広告運用まで。お任せもOK。本気で伸ばすなら一緒に。あなたに寄り添う伴走支援。<br><small style="color:var(--green-primary);">（株）ネルプ・グリン（株）正規代理店</small></p>
           <a href="#contact" class="btn-more">お問い合わせ</a>
         </div>
 
         <div class="business-card">
           <div class="business-icon">🎬</div>
           <h3>映像制作事業</h3>
-          <p>PR動画制作・ドローン撮影など、映像を通じて地域の魅力を世界に届けます。</p>
+          <p>ドローン撮影・写真撮影・映像制作で地域の魅力を発信。PR動画制作から企業紹介動画まで、映像の力で想いを届けます。</p>
           <a href="#contact" class="btn-more">お問い合わせ</a>
         </div>
 
         <div class="business-card">
           <div class="business-icon">📸</div>
           <h3>写真撮影</h3>
-          <p>プロフェッショナルな写真撮影で、企業やイベントの大切な瞬間を記録します。</p>
+          <p>プロフェッショナルな写真撮影で企業・イベント・商品の魅力を引き出します。ドローン空撮にも対応。</p>
           <a href="#contact" class="btn-more">お問い合わせ</a>
         </div>
 
         <div class="business-card">
           <div class="business-icon">🌐</div>
           <h3>HP制作・ECサイト作成</h3>
-          <p>ホームページ制作からECサイト構築まで、ビジネスのオンライン展開をサポートします。</p>
+          <p>ホームページ制作からECサイト構築まで、ビジネスのオンライン展開をサポート。集客・売上アップを目指すサイト制作。</p>
           <a href="#contact" class="btn-more">お問い合わせ</a>
         </div>
       </div>
@@ -894,6 +950,7 @@
           <p>
             〒090-0042<br>
             北海道北見市北二条西2丁目8 KITAMI BASE内<br><br>
+            TEL: <a href="tel:08058059408" style="color:#fff;">080-5805-9408</a><br>
             <a href="mailto:daichi.fujimoto@skyward-growth.com">daichi.fujimoto@skyward-growth.com</a>
           </p>
         </div>
