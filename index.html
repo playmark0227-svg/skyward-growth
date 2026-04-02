@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社Skyward Growth | 北見から広がる、地域共創のカタチ。</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --green-primary: #3cb44a;
+      --green-light: #c8e6c0;
+      --blue-primary: #64b5f6;
+      --blue-light: #bbdefb;
+      --text-dark: #2c2c2c;
+      --text-gray: #666;
+      --bg-light: #f9fafb;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--green-primary);
+    }
+
+    .btn-contact {
+      background: var(--green-primary);
+      color: #fff !important;
+      padding: 10px 28px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-contact:hover {
+      background: #2e9a3a;
+      transform: translateY(-1px);
+    }
+
+    /* Mobile menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-dark);
+      transition: 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #fff;
+      padding-top: 70px;
+    }
+
+    /* 北海道シルエット風 decorative shape */
+    .hero-hokkaido {
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      transform: translateY(-50%);
+      width: 420px;
+      height: 500px;
+      background: linear-gradient(180deg, rgba(187,222,251,0.3) 0%, rgba(187,222,251,0.1) 100%);
+      clip-path: polygon(35% 0%, 55% 2%, 70% 8%, 80% 15%, 85% 25%, 78% 35%, 82% 42%, 90% 48%, 88% 55%, 75% 58%, 70% 65%, 72% 75%, 65% 85%, 55% 90%, 40% 95%, 30% 88%, 22% 78%, 18% 65%, 20% 55%, 15% 45%, 10% 35%, 15% 22%, 25% 10%);
+      z-index: 1;
+    }
+
+    /* Green blob top-right */
+    .hero-blob-green {
+      position: absolute;
+      top: -60px;
+      right: -80px;
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(135deg, rgba(60,180,74,0.15), rgba(200,230,192,0.3));
+      border-radius: 50% 40% 60% 50%;
+      z-index: 0;
+    }
+
+    /* Blue blob bottom-right */
+    .hero-blob-blue {
+      position: absolute;
+      top: 60px;
+      right: 100px;
+      width: 600px;
+      height: 550px;
+      background: linear-gradient(160deg, rgba(100,181,246,0.12), rgba(187,222,251,0.2));
+      border-radius: 40% 60% 50% 50%;
+      z-index: 0;
+    }
+
+    /* Green blob bottom-left */
+    .hero-blob-green2 {
+      position: absolute;
+      bottom: -40px;
+      left: -20px;
+      width: 300px;
+      height: 350px;
+      background: linear-gradient(180deg, rgba(200,230,192,0.4), rgba(60,180,74,0.1));
+      border-radius: 50% 60% 40% 50%;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 40px;
+      gap: 40px;
+    }
+
+    .hero-text {
+      flex: 0 0 auto;
+      max-width: 380px;
+    }
+
+    .hero-catchcopy {
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1.5;
+      letter-spacing: 2px;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      height: 480px;
+    }
+
+    .hero-catchcopy .green {
+      color: var(--green-primary);
+    }
+
+    .hero-catchcopy .blue {
+      color: var(--blue-primary);
+    }
+
+    .hero-sub {
+      writing-mode: vertical-rl;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--text-gray);
+      margin-top: 20px;
+      font-weight: 400;
+    }
+
+    .hero-images {
+      flex: 1;
+      position: relative;
+      height: 520px;
+    }
+
+    .hero-img-main {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 85%;
+      height: 380px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    }
+
+    .hero-img-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-img-sub {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      width: 260px;
+      height: 200px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+    }
+
+    .hero-img-sub img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* placeholder images with gradients */
+    .img-placeholder-sunflower {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #f0c040 0%, #e8a820 30%, #88b040 60%, #4a8030 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .img-placeholder-field {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #87ceeb 0%, #87ceeb 40%, #6aaf50 40%, #4a8830 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      font-size: 12px;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section {
+      padding: 100px 40px;
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--green-primary);
+      border-radius: 2px;
+    }
+
+    .section-title-en {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--green-primary);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      margin-top: 32px;
+      font-size: 16px;
+      color: var(--text-gray);
+      line-height: 2;
+    }
+
+    /* ===== PHILOSOPHY ===== */
+    #philosophy {
+      background: var(--bg-light);
+    }
+
+    .philosophy-text {
+      margin-top: 40px;
+      font-size: 18px;
+      line-height: 2.2;
+      color: var(--text-dark);
+    }
+
+    .philosophy-text strong {
+      color: var(--green-primary);
+      font-weight: 700;
+    }
+
+    /* ===== MEMBERS ===== */
+    #members {
+      background: #fff;
+    }
+
+    .members-grid {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .member-card {
+      background: var(--bg-light);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .member-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .member-card:first-child .member-avatar {
+      background: linear-gradient(135deg, var(--green-primary), #2e9a3a);
+    }
+
+    .member-card:last-child .member-avatar {
+      background: linear-gradient(135deg, var(--blue-primary), #42a5f5);
+    }
+
+    .member-role {
+      font-size: 13px;
+      color: var(--green-primary);
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .member-name {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .member-name-en {
+      font-size: 12px;
+      color: var(--text-gray);
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .member-info {
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.8;
+    }
+
+    .member-info a {
+      color: var(--green-primary);
+      text-decoration: none;
+    }
+
+    .member-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== BUSINESS ===== */
+    #business {
+      background: var(--bg-light);
+    }
+
+    .business-grid {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .business-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 28px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .business-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .business-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .business-card:nth-child(1) .business-icon { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); }
+    .business-card:nth-child(2) .business-icon { background: linear-gradient(135deg, #e3f2fd, #bbdefb); }
+    .business-card:nth-child(3) .business-icon { background: linear-gradient(135deg, #fff3e0, #ffe0b2); }
+    .business-card:nth-child(4) .business-icon { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+    .business-card:nth-child(5) .business-icon { background: linear-gradient(135deg, #e8eaf6, #c5cae9); }
+
+    .business-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .business-card p {
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.8;
+    }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      background: #fff;
+    }
+
+    .contact-box {
+      margin-top: 48px;
+      background: linear-gradient(135deg, var(--green-primary), #2e9a3a);
+      border-radius: 20px;
+      padding: 60px 48px;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .contact-info h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      font-size: 15px;
+      line-height: 2;
+      opacity: 0.9;
+    }
+
+    .contact-info a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .contact-action .btn-contact-large {
+      display: inline-block;
+      background: #fff;
+      color: var(--green-primary);
+      padding: 16px 48px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .contact-action .btn-contact-large:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--text-dark);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 40px;
+      font-size: 13px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-content {
+        flex-direction: column;
+        padding-top: 40px;
+      }
+
+      .hero-catchcopy {
+        writing-mode: horizontal-tb;
+        height: auto;
+        font-size: 32px;
+        text-align: center;
+      }
+
+      .hero-sub {
+        writing-mode: horizontal-tb;
+        text-align: center;
+        margin-top: 8px;
+      }
+
+      .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+      }
+
+      .hero-images {
+        height: 300px;
+        width: 100%;
+      }
+
+      .hero-img-main {
+        width: 100%;
+        height: 260px;
+      }
+
+      .hero-img-sub {
+        display: none;
+      }
+
+      .hero-hokkaido {
+        width: 300px;
+        height: 360px;
+        left: -30px;
+        opacity: 0.5;
+      }
+
+      .members-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .business-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 28px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 20px 40px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 14px 20px;
+      }
+
+      section {
+        padding: 60px 20px;
+      }
+
+      .hero-catchcopy {
+        font-size: 26px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">Skyward Growth</div>
+    <button class="hamburger" onclick="document.querySelector('nav').classList.toggle('active')" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <a href="#philosophy">企業理念</a>
+      <a href="#members">代表紹介</a>
+      <a href="#business">事業紹介</a>
+      <a href="#contact" class="btn-contact">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-hokkaido"></div>
+    <div class="hero-blob-green"></div>
+    <div class="hero-blob-blue"></div>
+    <div class="hero-blob-green2"></div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-sub">SUSTAINABLE GROWTH,<br>MADE IN KITAMI.</p>
+        <h1 class="hero-catchcopy">
+          <span class="green">北</span><span class="blue">見</span>から広がる、<br>地域共創のカタチ。
+        </h1>
+      </div>
+      <div class="hero-images">
+        <div class="hero-img-main">
+          <div class="img-placeholder-sunflower">
+            <span>SUNFLOWER FIELD — KITAMI</span>
+          </div>
+        </div>
+        <div class="hero-img-sub">
+          <div class="img-placeholder-field">
+            <span>AGRICULTURE — KITAMI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section id="philosophy">
+    <div class="section-inner fade-in">
+      <p class="section-title-en">Philosophy</p>
+      <h2 class="section-title">企業理念</h2>
+      <div class="philosophy-text">
+        <p>
+          私たちは、<strong>北海道・北見</strong>を拠点に、地域の可能性を最大限に引き出す事業を展開しています。
+        </p>
+        <p style="margin-top: 16px;">
+          モビリティ、デジタルマーケティング、映像制作——<br>
+          多角的なアプローチで地域の課題を解決し、<br>
+          <strong>持続可能な成長</strong>と<strong>地域共創</strong>の新しいカタチを創り出します。
+        </p>
+        <p style="margin-top: 16px;">
+          北見から、空へ。<br>
+          地域と共に、高みを目指して。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERS -->
+  <section id="members">
+    <div class="section-inner fade-in">
+      <p class="section-title-en">Members</p>
+      <h2 class="section-title">代表紹介</h2>
+
+      <div class="members-grid">
+        <!-- 藤本大地 -->
+        <div class="member-card">
+          <div class="member-avatar">藤</div>
+          <p class="member-role">代表取締役社長</p>
+          <h3 class="member-name">藤本 大地</h3>
+          <p class="member-name-en">DAICHI FUJIMOTO</p>
+          <div class="member-info">
+            <p>株式会社Skyward Growth 創業者</p>
+            <p>北海道北見市を拠点に、モビリティ事業や<br>デジタルマーケティングなど多角的に事業を展開。</p>
+            <p style="margin-top: 12px;">
+              Mobile: 080-5805-9408<br>
+              <a href="mailto:daichi.fujimoto@skyward-growth.com">daichi.fujimoto@skyward-growth.com</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- 久保歩夢 -->
+        <div class="member-card">
+          <div class="member-avatar">久</div>
+          <p class="member-role">取締役</p>
+          <h3 class="member-name">久保 歩夢</h3>
+          <p class="member-name-en">AYUMU KUBO</p>
+          <div class="member-info">
+            <p>株式会社Skyward Growth 取締役</p>
+            <p style="margin-top: 12px;">
+              <a href="mailto:ayumu.kubo@skyward-growth.com">ayumu.kubo@skyward-growth.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS -->
+  <section id="business">
+    <div class="section-inner fade-in">
+      <p class="section-title-en">Business</p>
+      <h2 class="section-title">事業紹介</h2>
+
+      <div class="business-grid">
+        <div class="business-card">
+          <div class="business-icon">🚗</div>
+          <h3>モビリティ事業</h3>
+          <p>カーシェアリング・レンタカーサービスを通じて、地域の移動をもっと自由に、もっと便利に。</p>
+        </div>
+
+        <div class="business-card">
+          <div class="business-icon">📱</div>
+          <h3>SNS総合支援事業</h3>
+          <p>SNSマーケティングの企画から運用まで、デジタルの力で地域のビジネスを加速させます。</p>
+        </div>
+
+        <div class="business-card">
+          <div class="business-icon">🎬</div>
+          <h3>映像制作事業</h3>
+          <p>PR動画制作・ドローン撮影など、映像を通じて地域の魅力を世界に届けます。</p>
+        </div>
+
+        <div class="business-card">
+          <div class="business-icon">📸</div>
+          <h3>写真撮影</h3>
+          <p>プロフェッショナルな写真撮影で、企業やイベントの大切な瞬間を記録します。</p>
+        </div>
+
+        <div class="business-card">
+          <div class="business-icon">🌐</div>
+          <h3>HP制作・ECサイト作成</h3>
+          <p>ホームページ制作からECサイト構築まで、ビジネスのオンライン展開をサポートします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner fade-in">
+      <p class="section-title-en">Contact</p>
+      <h2 class="section-title">お問い合わせ</h2>
+
+      <div class="contact-box">
+        <div class="contact-info">
+          <h3>株式会社Skyward Growth</h3>
+          <p>
+            〒090-0042<br>
+            北海道北見市北二条西2丁目8 KITAMI BASE内<br><br>
+            <a href="mailto:daichi.fujimoto@skyward-growth.com">daichi.fujimoto@skyward-growth.com</a>
+          </p>
+        </div>
+        <div class="contact-action">
+          <a href="mailto:daichi.fujimoto@skyward-growth.com" class="btn-contact-large">お問い合わせはこちら</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 株式会社Skyward Growth. All Rights Reserved.</p>
+  </footer>
+
+  <!-- SCROLL ANIMATION -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
