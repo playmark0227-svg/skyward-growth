@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEPツール | Skyward Growth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --green-primary: #3cb44a;
+      --green-light: #c8e6c0;
+      --blue-primary: #64b5f6;
+      --blue-light: #bbdefb;
+      --text-dark: #2c2c2c;
+      --text-gray: #666;
+      --bg-light: #f9fafb;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--green-primary);
+    }
+
+    .btn-contact {
+      background: var(--green-primary);
+      color: #fff !important;
+      padding: 10px 28px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-contact:hover {
+      background: #2e9a3a;
+      transform: translateY(-1px);
+    }
+
+    /* Mobile menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-dark);
+      transition: 0.3s;
+    }
+    /* ===== SECTION COMMON ===== */
+    section {
+      padding: 100px 40px;
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--green-primary);
+      border-radius: 2px;
+    }
+
+    .section-title-en {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--green-primary);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      margin-top: 32px;
+      font-size: 16px;
+      color: var(--text-gray);
+      line-height: 2;
+    }
+    /* ===== STEP TOOLS ===== */
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .step-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      display: block;
+    }
+
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .step-card-header {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .step-emoji {
+      font-size: 40px;
+    }
+
+    .step-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    .step-card-body {
+      padding: 20px 18px 22px;
+    }
+
+    .step-card-body h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .step-card-body p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .step-btn {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #64b5f6;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 900px) {
+      .step-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .step-grid { grid-template-columns: 1fr; }
+    }
+    /* ===== ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    body { font-family: "Noto Sans JP", sans-serif; background: #fff; color: #1a2a1a; margin: 0; }
+    .page-hero {
+      background: linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);
+      padding: 140px 40px 80px;
+      text-align: center;
+    }
+    .page-hero p { font-size:13px;font-weight:700;letter-spacing:3px;color:#64b5f6;text-transform:uppercase;margin-bottom:12px; }
+    .page-hero h1 { font-size:48px;font-weight:900;color:#fff;margin-bottom:20px; }
+    .page-hero .lead { font-size:16px;color:rgba(255,255,255,0.7);line-height:2;max-width:600px;margin:0 auto; }
+    .step-main { background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460); padding:80px 40px 100px; }
+    .back-link { display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,0.6);text-decoration:none;font-size:14px;margin-bottom:48px;transition:color 0.2s; }
+    .back-link:hover { color:#fff; }
+    @media (max-width: 900px) {
+      .step-grid { grid-template-columns: repeat(2,1fr); }
+      .page-hero h1 { font-size:32px; }
+    }
+    @media (max-width: 600px) {
+      .step-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      nav { display: none; }
+      nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        background: #fff;
+        padding: 20px 40px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        gap: 8px;
+        z-index: 9999;
+      }
+      nav.active a { padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+      .hamburger { display: flex !important; }
+      .page-hero h1 { font-size: 32px; }
+      .ig-header { flex-wrap: wrap; }
+    }
+    @media (max-width: 600px) {
+      header { padding: 14px 20px; }
+      .blog-main, .step-main { padding: 40px 20px 60px; }
+      .page-hero { padding: 120px 20px 60px; }
+      .page-hero h1 { font-size: 26px; }
+      .ig-header a { margin-left: 0 !important; margin-top: 12px; width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">Skyward Growth</a>
+    <nav>
+      <a href="index.html">トップ</a>
+      <a href="index.html#philosophy">企業理念</a>
+      <a href="index.html#members">代表紹介</a>
+      <a href="index.html#business">事業紹介</a>
+      <a href="step-tools.html" style="color:var(--green-primary);font-weight:700;">STEPツール</a>
+      <a href="blog.html">ブログ</a>
+      <a href="index.html#contact" class="btn-contact">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <div class="page-hero">
+    <p>Partner Tools</p>
+    <h1>STEPツール、<br>始めるならここから</h1>
+    <p class="lead">LINE・メール・SNSの自動化ツール（ステップ配信）を導入したい方へ。<br>Skyward Growthが厳選したパートナーツールをご紹介します。</p>
+  </div>
+
+  <div class="step-main">
+    <div class="section-inner">
+      <a href="index.html" class="back-link">← トップに戻る</a>
+      <div class="step-grid">
+        <a href="https://istep.click/lp?agt-xl5t7df" target="_blank" rel="noopener" class="step-card">
+          <div class="step-card-header" style="background:linear-gradient(135deg,#667eea,#764ba2);">
+            <span class="step-emoji">📧</span>
+            <span class="step-badge">人気No.1</span>
+          </div>
+          <div class="step-card-body">
+            <h3>iステップ</h3>
+            <p>LINEステップ配信の定番ツール。直感的な操作で初心者でも安心。豊富なテンプレートで即日運用スタート。</p>
+            <span class="step-btn">詳細を見る →</span>
+          </div>
+        </a>
+        <a href="https://xtep.tools/lp?agt-i2doz8e" target="_blank" rel="noopener" class="step-card">
+          <div class="step-card-header" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
+            <span class="step-emoji">⚡</span>
+            <span class="step-badge">高機能</span>
+          </div>
+          <div class="step-card-body">
+            <h3>XTEP</h3>
+            <p>高度な分析機能と柔軟なシナリオ設計が強み。本格的なマーケティング自動化を実現したい方に。</p>
+            <span class="step-btn">詳細を見る →</span>
+          </div>
+        </a>
+        <a href="https://threp.jp/lp?agt-t50vwdq" target="_blank" rel="noopener" class="step-card">
+          <div class="step-card-header" style="background:linear-gradient(135deg,#4facfe,#00f2fe);">
+            <span class="step-emoji">🔄</span>
+            <span class="step-badge">コスパ◎</span>
+          </div>
+          <div class="step-card-body">
+            <h3>スレップ</h3>
+            <p>シンプルで使いやすい国産ステップ配信ツール。コストを抑えて本格運用したい方におすすめ。</p>
+            <span class="step-btn">詳細を見る →</span>
+          </div>
+        </a>
+        <a href="https://ttstep.jp/lp?agt-r3wo4gx" target="_blank" rel="noopener" class="step-card">
+          <div class="step-card-header" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">
+            <span class="step-emoji">✉️</span>
+            <span class="step-badge">メール特化</span>
+          </div>
+          <div class="step-card-body">
+            <h3>TTステップ</h3>
+            <p>メールマーケティングに特化したステップ配信。高い到達率と詳細な開封分析で成果を最大化。</p>
+            <span class="step-btn">詳細を見る →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background:#1a2a1a;color:rgba(255,255,255,0.6);text-align:center;padding:40px 20px;font-size:13px;">
+    <p style="margin-bottom:8px;color:#fff;font-weight:700;font-size:16px;">Skyward Growth</p>
+    <p>北海道北見市発 / 学生スタートアップ</p>
+    <p style="margin-top:16px;">© 2025 Skyward Growth. All rights reserved.</p>
+  </footer>
+</body>
+</html>
