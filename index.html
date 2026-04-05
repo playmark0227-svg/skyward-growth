@@ -908,307 +908,205 @@
 
     /* ===== RESPONSIVE ===== */
 
+    /* --- Tablet (max 1100px) --- */
+    @media (max-width: 1100px) {
+      .hero-catchcopy-new { font-size: 72px; }
+      .hero-text { max-width: 460px; }
+      .hero-images { height: 420px; }
+    }
+
     /* --- Tablet (max 900px) --- */
     @media (max-width: 900px) {
-      .hero-content {
-        padding: 60px 28px 60px 24px;
+      nav { display: none; }
+      nav.active {
+        display: flex; flex-direction: column;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: #fff; padding: 20px 40px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1); gap: 8px; z-index: 9999;
       }
+      nav.active a { padding: 12px 0; border-bottom: 1px solid #f0f0f0; font-size: 15px; }
+      nav.active .btn-contact { margin-top: 8px; text-align: center; }
+      .hamburger { display: flex; }
 
-      .hero-tagline-v {
-        font-size: 9px;
-        letter-spacing: 3px;
-        margin-right: 16px;
-      }
+      .hero-content { padding: 60px 32px 60px 24px; }
+      .hero-catchcopy-new { font-size: 52px; }
+      .hero-text { max-width: 360px; }
+      .hero-tagline-v { font-size: 9px; letter-spacing: 3px; margin-right: 16px; }
+      .hero-images { height: 360px; margin-left: 20px; }
+      .hero-img-main { left: 20px; border-radius: 16px; }
+      .hero-img-sub { width: 200px; bottom: -30px; border-radius: 12px; border-width: 3px; }
+      .hero-badge { font-size: 11px; padding: 5px 14px; }
+      .btn-hero-primary, .btn-hero-secondary { padding: 12px 24px; font-size: 13px; }
+      .hero-blob-green, .hero-blob-blue, .hero-blob-green2 { transform: scale(0.7); }
 
-      .hero-catchcopy-new {
-        font-size: 44px;
-      }
-
-      .hero-desc {
-        font-size: 14px;
-        margin-bottom: 24px;
-      }
-
-      .hero-text {
-        max-width: 320px;
-      }
-
-      .hero-hokkaido-logo {
-        width: 140px;
-        margin: 12px 0 0 -4px;
-      }
-
-      .hero-images {
-        height: 320px;
-        margin-left: 20px;
-      }
-
-      .hero-img-main {
-        left: 20px;
-        border-radius: 16px;
-      }
-
-      .hero-img-sub {
-        width: 185px;
-        border-radius: 12px;
-        border-width: 3px;
-        bottom: -35px;
-      }
-
-      .hero-badge {
-        font-size: 11px;
-        padding: 5px 14px;
-        margin-bottom: 12px;
-      }
-
-      .btn-hero-primary, .btn-hero-secondary {
-        padding: 12px 24px;
-        font-size: 13px;
-      }
-
-      .hero-hokkaido {
-        width: 260px;
-        height: 310px;
-        left: -30px;
-        opacity: 0.3;
-      }
-
-      .hero-blob-green, .hero-blob-blue, .hero-blob-green2 {
-        transform: scale(0.6);
-      }
-
-      /* Member profile cards */
-      .member-profile {
-        flex-direction: column !important;
-      }
-
-      .member-photo-area {
-        flex: none !important;
-        width: 100% !important;
-        height: 320px !important;
-      }
-
-      .member-photo-area img {
-        object-position: center top !important;
-      }
-
-      /* Grids */
+      .overview-grid { grid-template-columns: 1fr; }
       .members-grid { grid-template-columns: 1fr; }
       .business-grid { grid-template-columns: 1fr; }
       .business-card:last-child { grid-column: span 1; }
-      .overview-grid { grid-template-columns: 1fr; }
       .concept-grid { grid-template-columns: 1fr; }
-
-      /* Contact */
-      .contact-box {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 28px;
-      }
-
-      /* Nav */
-      nav {
-        display: none;
-      }
-
-      nav.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #fff;
-        padding: 20px 40px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        gap: 8px;
-        z-index: 9999;
-      }
-
-      nav.active a {
-        padding: 12px 0;
-        border-bottom: 1px solid #f0f0f0;
-        font-size: 15px;
-      }
-
-      nav.active .btn-contact {
-        margin-top: 8px;
-        text-align: center;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      /* Section titles */
+      .member-profile { flex-direction: column !important; }
+      .member-photo-area { flex: none !important; width: 100% !important; height: 320px !important; }
+      .member-photo-area img { object-position: center top !important; }
       .section-title { font-size: 28px; }
       .section-title-en { font-size: 11px; }
+      .contact-box { flex-direction: column; text-align: center; padding: 40px 28px; }
     }
 
     /* --- Mobile (max 600px) --- */
     @media (max-width: 600px) {
-      header {
-        padding: 14px 20px;
-      }
+      header { padding: 14px 20px; }
+      section { padding: 60px 20px; }
 
-      section {
-        padding: 60px 20px;
-      }
-
-      .hero {
-        min-height: auto;
-        padding-top: 70px;
-        padding-bottom: 60px;
-      }
-
+      /* Hero: vertical stack */
+      .hero { min-height: 100svh; padding-top: 70px; padding-bottom: 0; }
       .hero-content {
-        padding: 28px 16px 28px 10px;
-        align-items: center;
+        flex-direction: column;
+        padding: 28px 24px 0;
+        gap: 0;
+        align-items: flex-start;
       }
+      .hero-tagline-v { display: none; }
+      .hero-blob-green, .hero-blob-blue, .hero-blob-green2 { transform: scale(0.5); }
+      .hero-hokkaido { display: none; }
 
-      .hero-tagline-v {
-        font-size: 7px;
-        letter-spacing: 2px;
-        margin-right: 8px;
-      }
+      .hero-text { max-width: 100%; width: 100%; }
+      .hero-badge { font-size: 11px; padding: 5px 14px; margin-bottom: 14px; }
+      .hero-catchcopy-new { font-size: 46px; line-height: 1.25; margin-bottom: 16px; letter-spacing: 1px; }
+      .hero-desc { font-size: 14px; max-width: 100%; margin-bottom: 24px; }
+      .hero-hokkaido-logo { width: 120px; margin-bottom: 28px; }
+      .hero-cta-group { gap: 12px; flex-wrap: wrap; }
+      .btn-hero-primary, .btn-hero-secondary { padding: 14px 28px; font-size: 14px; }
 
-      .hero-catchcopy-new {
-        font-size: 20px;
-        line-height: 1.3;
-        letter-spacing: 0.5px;
-        margin-bottom: 8px;
-      }
-
-      .hero-badge {
-        font-size: 8px;
-        padding: 3px 8px;
-        margin-bottom: 6px;
-      }
-
-      .hero-desc {
-        font-size: 9px;
-        margin-bottom: 12px;
-        line-height: 1.5;
-        max-width: 155px;
-      }
-
-      .hero-hokkaido-logo {
-        width: 60px;
-        margin: 6px 0 0 -2px;
-      }
-
-      .hero-hokkaido {
-        display: none;
-      }
-
-      .hero-text {
-        max-width: 155px;
-        flex-shrink: 0;
-      }
-
+      /* Hero images: below text, overlapping */
       .hero-images {
         position: relative;
+        width: calc(100% + 48px);
+        margin-left: -24px;
         height: auto;
-        margin-left: 10px;
-        flex: 1;
-        min-width: 0;
         overflow: visible;
+        margin-top: 36px;
+        padding-bottom: 32px;
       }
-
-      /* mobile: switch to relative layout to guarantee overlap */
       .hero-img-main {
         position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        width: 92%;
+        top: auto; left: auto; right: auto; bottom: auto;
+        width: 82%;
         margin-left: auto;
-        border-radius: 10px;
-      }
-
-      .hero-img-main img {
-        width: 100%;
-        height: auto;
+        border-radius: 20px 0 0 0;
         display: block;
       }
-
+      .hero-img-main img { width: 100%; height: auto; display: block; }
       .hero-img-sub {
         position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        width: 78%;
-        margin-top: -28%;
-        margin-left: 0;
+        top: auto; left: auto; right: auto; bottom: auto;
+        width: 58%;
+        margin-top: -26%;
+        margin-left: 16px;
         margin-right: auto;
-        border-radius: 8px;
-        border-width: 2px;
+        border-radius: 16px;
+        border-width: 4px;
         z-index: 5;
-      }
-
-      .hero-img-sub img {
-        width: 100%;
-        height: auto;
         display: block;
       }
+      .hero-img-sub img { width: 100%; height: auto; display: block; }
 
-      .btn-hero-primary, .btn-hero-secondary {
-        padding: 8px 14px;
-        font-size: 10px;
-      }
+      /* Grids */
+      .overview-grid, .concept-grid, .business-grid, .members-grid { grid-template-columns: 1fr; }
+      .business-card:last-child { grid-column: span 1; }
 
-      .hero-cta-group {
-        gap: 6px;
-      }
+      /* Member */
+      .member-profile { flex-direction: column !important; }
+      .member-photo-area { flex: none !important; width: 100% !important; height: 260px !important; }
+      .member-photo-area img { object-position: center top !important; }
+      .member-profile > div:not(.member-photo-area) { padding: 32px 24px !important; }
+      .member-profile h3 { font-size: 28px !important; }
+      .member-profile p { font-size: 14px !important; }
 
-      .hero-blob-green, .hero-blob-blue, .hero-blob-green2 {
-        transform: scale(0.4);
-      }
-
-      /* Member cards mobile */
-      .member-photo-area {
-        height: 260px !important;
-      }
-
-      .member-profile > div:not(.member-photo-area) {
-        padding: 32px 24px !important;
-      }
-
-      .member-profile h3 {
-        font-size: 28px !important;
-      }
-
-      .member-profile p {
-        font-size: 14px !important;
-      }
-
-      /* Section */
-      .section-title { font-size: 24px; }
+      /* Typography */
+      .section-title { font-size: 26px; }
       .section-desc { font-size: 14px; }
 
-      /* Business cards */
+      /* Cards */
       .business-card { padding: 28px 20px; }
       .business-card h3 { font-size: 18px; }
-
-      /* STEP teaser / Blog teaser */
-      #step-tools h2, #news h2 {
-        font-size: 28px !important;
-      }
+      #step-tools h2, #news h2 { font-size: 28px !important; }
 
       /* Contact */
-      .contact-box {
-        padding: 32px 20px;
-      }
+      .contact-box { padding: 32px 20px; flex-direction: column; text-align: center; }
 
       /* Footer */
-      footer {
-        padding: 40px 20px;
-      }
+      footer { padding: 40px 20px; }
     }
 
-    /* ===== BLOB ANIMATIONS ===== */
+    /* ===== QUALITY FEATURES ===== */
+
+    /* Loading screen */
+    #page-loader {
+      position: fixed; inset: 0; background: #fff; z-index: 99999;
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    #page-loader.hidden { opacity: 0; visibility: hidden; }
+    .loader-inner { text-align: center; }
+    .loader-logo {
+      font-size: 22px; font-weight: 800; color: #1a2a1a; letter-spacing: 2px;
+      margin-bottom: 20px; opacity: 0; animation: loaderFadeIn 0.4s 0.1s forwards;
+    }
+    .loader-bar-wrap {
+      width: 160px; height: 3px; background: #eee; border-radius: 3px; overflow: hidden;
+      opacity: 0; animation: loaderFadeIn 0.4s 0.2s forwards;
+    }
+    .loader-bar {
+      height: 100%; width: 0; background: var(--green-primary);
+      border-radius: 3px; animation: loaderProgress 0.8s 0.3s ease forwards;
+    }
+    @keyframes loaderFadeIn { to { opacity: 1; } }
+    @keyframes loaderProgress { to { width: 100%; } }
+
+    /* Header scroll state */
+    header { transition: box-shadow 0.3s, background 0.3s; }
+    header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+
+    /* Back to top button */
+    #back-to-top {
+      position: fixed; bottom: 32px; right: 32px; z-index: 1000;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--green-primary); color: #fff; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(60,180,74,0.35);
+      opacity: 0; visibility: hidden; transform: translateY(12px);
+      transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s;
+      font-size: 20px; line-height: 1;
+    }
+    #back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    #back-to-top:hover { background: #2e9a3a; transform: translateY(-3px); }
+    @media (max-width: 600px) {
+      #back-to-top { bottom: 20px; right: 20px; width: 42px; height: 42px; font-size: 17px; }
+    }
+
+    /* Active nav link */
+    nav a.nav-active {
+      color: var(--green-primary) !important;
+      font-weight: 700;
+    }
+
+    /* Staggered fade-in for grid children */
+    .stagger-children > * {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .stagger-children.visible > *:nth-child(1) { transition-delay: 0s; }
+    .stagger-children.visible > *:nth-child(2) { transition-delay: 0.1s; }
+    .stagger-children.visible > *:nth-child(3) { transition-delay: 0.2s; }
+    .stagger-children.visible > *:nth-child(4) { transition-delay: 0.3s; }
+    .stagger-children.visible > *:nth-child(5) { transition-delay: 0.4s; }
+    .stagger-children.visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+        /* ===== BLOB ANIMATIONS ===== */
     @keyframes blobFloat1 {
       0%   { transform: translateY(0px) scale(1) rotate(0deg); border-radius: 50% 40% 60% 50%; }
       33%  { transform: translateY(-18px) scale(1.04) rotate(3deg); border-radius: 60% 50% 40% 60%; }
@@ -1266,6 +1164,18 @@
 </head>
 <body>
 
+  <!-- LOADING SCREEN -->
+  <div id="page-loader">
+    <div class="loader-inner">
+      <div class="loader-logo">Skyward Growth</div>
+      <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="ページトップへ">↑</button>
+
+
   <!-- HEADER -->
   <header>
     <div class="logo">Skyward Growth</div>
@@ -1293,7 +1203,7 @@
     <div class="hero-content">
       <p class="hero-tagline-v">SUSTAINABLE GROWTH,<br>MADE IN KITAMI</p>
       <div class="hero-text">
-        <p class="hero-badge">北海道北見市発 / 学生企業</p>
+        <p class="hero-badge">北海道北見市発 / 地域共創カンパニー</p>
         <h1 class="hero-catchcopy-new">
           北見から<br>広がる、<br>
           <span class="blue">地域共創</span>の<br>カタチ。
@@ -1323,7 +1233,7 @@
       <p class="section-title-en">What We Do</p>
       <h2 class="section-title">Skyward Growthとは</h2>
       <p class="section-desc" style="margin-top:20px;">北海道北見市を拠点に、<strong>モビリティ・デジタルマーケティング・映像制作</strong>の3つの軸で地域の課題を解決します。<br>「丸投げOK」のワンストップサービスで、地域のビジネスを加速させます。</p>
-      <div class="overview-grid fade-in">
+      <div class="overview-grid fade-in stagger-children">
         <div class="overview-card">
           <div class="overview-num">01</div>
           <div class="overview-icon">🚗</div>
@@ -1364,7 +1274,7 @@
         </p>
       </div>
 
-      <div class="concept-grid fade-in">
+      <div class="concept-grid fade-in stagger-children">
         <div class="concept-item">
           <span class="concept-icon">⚡</span>
           <strong>地域密着で迅速対応</strong>
@@ -1400,7 +1310,7 @@
           <p style="font-size:14px;color:#888;font-weight:500;margin-bottom:8px;">代表取締役社長</p>
           <h3 style="font-size:40px;font-weight:900;color:#1a2a1a;margin-bottom:32px;letter-spacing:1px;">藤本 大地</h3>
           <div style="width:40px;height:3px;background:#3cb84a;border-radius:2px;margin-bottom:32px;"></div>
-          <p style="font-size:16px;line-height:2;color:#555;margin-bottom:32px;">「地域の皆様の挑戦を、ともに。」<br>北見市発の学生スタートアップとして、モビリティ・デジタルマーケティング・映像制作を通じて地域活性化に全力で貢献します。</p>
+          <p style="font-size:16px;line-height:2;color:#555;margin-bottom:32px;">「地域の皆様の挑戦を、ともに。」<br>北見市を拠点に、モビリティ・デジタルマーケティング・映像制作を通じて地域活性化に全力で貢献します。</p>
           <div style="display:flex;flex-direction:column;gap:8px;">
             <p style="font-size:14px;color:#666;"><span style="color:#3cb84a;font-weight:700;margin-right:8px;">TEL</span>080-5805-9408</p>
             <p style="font-size:14px;color:#666;"><span style="color:#3cb84a;font-weight:700;margin-right:8px;">MAIL</span><a href="mailto:daichi.fujimoto@skyward-growth.com" style="color:#3cb84a;text-decoration:none;">daichi.fujimoto@skyward-growth.com</a></p>
@@ -1532,7 +1442,7 @@
       <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px; margin-bottom:40px;">
         <div>
           <div style="font-size:20px; font-weight:700; color:#fff; margin-bottom:8px;">Skyward Growth</div>
-          <p style="font-size:13px; line-height:2;">北海道北見市発。地域の挑戦をサポートする学生企業。</p>
+          <p style="font-size:13px; line-height:2;">北海道北見市発。地域の挑戦をサポートする会社です。</p>
         </div>
         <div style="display:flex; gap:48px; flex-wrap:wrap;">
           <div>
@@ -1564,6 +1474,14 @@
 
   <!-- SCROLL ANIMATION -->
   <script>
+    // Loading screen
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('page-loader').classList.add('hidden');
+      }, 900);
+    });
+
+    // Scroll observer: fade-in + stagger
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1571,8 +1489,40 @@
         }
       });
     }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in, .stagger-children').forEach(el => observer.observe(el));
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // Header scroll shadow
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Back to top button
+    const btt = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      btt.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    const activateNav = () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle('nav-active', a.getAttribute('href') === '#' + current);
+      });
+    };
+    window.addEventListener('scroll', activateNav, { passive: true });
+
+    // Hamburger menu close on link click (mobile)
+    document.querySelectorAll('nav a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.querySelector('nav').classList.remove('active');
+      });
+    });
   </script>
 
 
