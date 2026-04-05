@@ -1106,7 +1106,53 @@
       transform: translateY(0);
     }
 
-        /* ===== BLOB ANIMATIONS ===== */
+        /* ===== WORKS DISPLAY ===== */
+    .works-display-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .works-display-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .works-display-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+    }
+    .works-display-card-img {
+      width: 100%; height: 200px; object-fit: cover;
+      background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+    }
+    .works-display-card-body { padding: 20px 22px; }
+    .works-display-cat {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 20px; margin-bottom: 10px;
+      background: #e8f5e9; color: #3cb84a;
+    }
+    .works-display-card-body h3 {
+      font-size: 16px; font-weight: 700; line-height: 1.5; margin-bottom: 8px;
+    }
+    .works-display-card-body p {
+      font-size: 13px; color: #777; line-height: 1.7;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .works-display-date { font-size: 12px; color: #aaa; margin-top: 12px; }
+    .works-empty-msg {
+      grid-column: 1 / -1; text-align: center; padding: 60px 20px;
+      color: #aaa; font-size: 15px;
+    }
+    @media (max-width: 900px) {
+      .works-display-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .works-display-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== BLOB ANIMATIONS ===== */
     @keyframes blobFloat1 {
       0%   { transform: translateY(0px) scale(1) rotate(0deg); border-radius: 50% 40% 60% 50%; }
       33%  { transform: translateY(-18px) scale(1.04) rotate(3deg); border-radius: 60% 50% 40% 60%; }
@@ -1186,6 +1232,7 @@
       <a href="#philosophy">企業理念</a>
       <a href="#members">代表紹介</a>
       <a href="#business">事業紹介</a>
+      <a href="#works">実績</a>
       <a href="step-tools.html">STEPツール</a>
       <a href="blog.html">ブログ</a>
       <a href="#contact" class="btn-contact">お問い合わせ</a>
@@ -1395,13 +1442,16 @@
     </div>
   </section>
 
-  <!-- NEWS / BLOG -->
-  <section id="news" style="background:#f7f9f7;padding:80px 40px;text-align:center;">
+  <!-- WORKS (実績) -->
+  <section id="works" style="background:#f7f9f7;padding:80px 40px;">
     <div class="section-inner fade-in">
-      <p class="section-title-en">News & Blog</p>
-      <h2 class="section-title">インスタグラム</h2>
-      <p style="font-size:16px;color:#555;line-height:2;max-width:500px;margin:0 auto 40px;">Skyward Growthの最新情報・活動レポートをInstagramで発信中！</p>
-      <a href="blog.html" style="display:inline-block;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:18px 48px;border-radius:50px;text-decoration:none;font-size:17px;font-weight:700;box-shadow:0 8px 30px rgba(220,39,67,0.3);">Instagramを見る →</a>
+      <p class="section-title-en" style="text-align:center;">Works</p>
+      <h2 class="section-title" style="text-align:center;">実績紹介</h2>
+      <p style="font-size:16px;color:#555;line-height:2;max-width:500px;margin:0 auto 40px;text-align:center;">Skyward Growthがこれまでに手がけたプロジェクトをご紹介します。</p>
+      <div id="works-display" class="works-display-grid stagger-children"></div>
+      <div style="text-align:center;margin-top:48px;">
+        <a href="blog.html" style="display:inline-block;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:14px 36px;border-radius:50px;text-decoration:none;font-size:15px;font-weight:700;box-shadow:0 6px 24px rgba(220,39,67,0.25);">Instagram も見る →</a>
+      </div>
     </div>
   </section>
 
@@ -1527,6 +1577,54 @@
 
 
   <!-- BLOG JS -->
+
+
+  <!-- WORKS DISPLAY JS -->
+  <script>
+    (function() {
+      const STORAGE_KEY = 'skyward_works';
+      const container = document.getElementById('works-display');
+      if (!container) return;
+
+      let works = [];
+      try { works = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch {}
+
+      // Default sample works if empty
+      if (works.length === 0) {
+        works = [
+          {
+            id: 'sample1', category: 'デジタルマーケティング',
+            title: 'SNS運用の実績をここに追加できます',
+            description: '管理画面から実績を追加すると、ここに自動で表示されます。画像・カテゴリ・説明をSNS投稿のように簡単に追加できます。',
+            date: '2026-04-01', image: ''
+          }
+        ];
+      }
+
+      // Sort by date desc
+      works.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      // Render max 6
+      const display = works.slice(0, 6);
+
+      container.innerHTML = display.map(w => {
+        const dateStr = (() => {
+          const d = new Date(w.date);
+          return d.getFullYear() + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + String(d.getDate()).padStart(2,'0');
+        })();
+        return `
+        <div class="works-display-card">
+          ${w.image ? '<img class="works-display-card-img" src="' + w.image + '" alt="' + w.title + '">' : '<div class="works-display-card-img" style="display:flex;align-items:center;justify-content:center;font-size:40px;opacity:0.3;">📷</div>'}
+          <div class="works-display-card-body">
+            <span class="works-display-cat">${w.category}</span>
+            <h3>${w.title}</h3>
+            <p>${w.description}</p>
+            <div class="works-display-date">${dateStr}</div>
+          </div>
+        </div>`;
+      }).join('');
+    })();
+  </script>
 
 </body>
 </html>
