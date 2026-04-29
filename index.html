@@ -677,58 +677,76 @@
 
     /* ===== CONCEPT GRID ===== */
     .concept-grid {
-      margin-top: 56px;
+      margin-top: 72px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+      gap: 24px;
     }
 
     .concept-item {
       background: #fff;
-      border-radius: 4px;
-      padding: 40px 32px;
+      border-radius: 6px;
+      padding: 44px 36px 40px;
       text-align: left;
       border-top: none;
       border: 1px solid var(--border-soft);
       position: relative;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+      counter-increment: concept-counter;
+    }
+    .concept-grid {
+      counter-reset: concept-counter;
     }
     .concept-item::before {
-      content: '';
+      content: counter(concept-counter, decimal-leading-zero);
       position: absolute;
-      top: -1px;
-      left: -1px;
-      width: 32px;
-      height: 1px;
-      background: var(--green-primary);
+      top: 24px;
+      right: 28px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--green-primary);
+      letter-spacing: 0.18em;
+      opacity: 0.7;
+      width: auto;
+      height: auto;
+      background: transparent;
     }
     .concept-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(20,20,20,0.06);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(20,20,20,0.08);
+      border-color: var(--green-primary);
     }
 
     .concept-icon {
-      font-size: 26px;
-      display: block;
-      margin-bottom: 18px;
-      filter: grayscale(0.1);
+      font-size: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--green-soft);
+      margin-bottom: 22px;
+      filter: grayscale(0.05);
     }
 
     .concept-item strong {
       display: block;
       font-family: 'Shippori Mincho', serif;
-      font-size: 17px;
-      font-weight: 600;
-      margin-bottom: 12px;
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 14px;
       color: var(--text-dark);
       letter-spacing: 0.04em;
+      line-height: 1.5;
     }
 
     .concept-item p {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text-mid);
-      line-height: 1.95;
-      letter-spacing: 0.02em;
+      line-height: 2;
+      letter-spacing: 0.03em;
     }
 
     @media (max-width: 900px) {
@@ -754,18 +772,66 @@
     #philosophy::after { bottom: 0; }
 
     .philosophy-text {
-      margin-top: 48px;
-      font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
-      font-size: 19px;
-      line-height: 2.4;
+      margin-top: 56px;
+      max-width: 760px;
+    }
+    .philosophy-text p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 17px;
+      line-height: 2.05;
       color: var(--text-dark);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       font-weight: 500;
+    }
+    .philosophy-text p + p {
+      margin-top: 22px;
+    }
+    .philosophy-text p:first-of-type {
+      font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+      font-size: 26px;
+      line-height: 1.85;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding-left: 20px;
+      border-left: 3px solid var(--green-primary);
+      margin-bottom: 8px;
     }
 
     .philosophy-text strong {
       color: var(--green-primary);
       font-weight: 700;
+      background: linear-gradient(transparent 65%, rgba(31,107,58,0.12) 65%);
+      padding: 0 2px;
+    }
+    .philosophy-text p:first-of-type strong {
+      background: none;
+      padding: 0;
+    }
+    .philosophy-quote {
+      margin-top: 40px !important;
+      padding: 24px 28px !important;
+      background: rgba(31,107,58,0.04);
+      border-radius: 4px;
+      font-family: 'Shippori Mincho', 'Noto Serif JP', serif !important;
+      font-size: 16px !important;
+      line-height: 2.2 !important;
+      letter-spacing: 0.08em !important;
+      color: var(--text-mid) !important;
+      font-style: normal !important;
+      font-weight: 500 !important;
+      position: relative;
+    }
+    .philosophy-quote::before {
+      content: '“';
+      position: absolute;
+      top: -8px;
+      left: 14px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      color: var(--green-primary);
+      opacity: 0.3;
+      line-height: 1;
     }
 
     /* ===== MEMBERS ===== */
@@ -1367,9 +1433,10 @@
       .overview-card p { font-size: 13px; line-height: 1.95; }
 
       /* Philosophy */
-      .philosophy-text { margin-top: 36px; font-size: 16px; line-height: 2.2; letter-spacing: 0.04em; }
-      .philosophy-text p { font-size: 16px; }
-      .philosophy-text p[style*="Cormorant"] { font-size: 14px !important; line-height: 1.9 !important; margin-top: 32px !important; }
+      .philosophy-text { margin-top: 36px; }
+      .philosophy-text p { font-size: 15px; line-height: 2; }
+      .philosophy-text p:first-of-type { font-size: 22px !important; line-height: 1.75 !important; padding-left: 16px !important; }
+      .philosophy-quote { font-size: 14px !important; padding: 22px 24px !important; margin-top: 32px !important; }
       .concept-grid { margin-top: 40px; gap: 16px; }
       .concept-item { padding: 28px 24px; }
       .concept-icon { font-size: 22px; margin-bottom: 14px; }
@@ -1770,13 +1837,13 @@
       <h2 class="section-title">企業理念</h2>
       <div class="philosophy-text">
         <p>
-          株式会社Skyward Growthは、地域の皆様の<strong>「北見市の挑戦」</strong>を<br>総合的にサポートする会社です。
+          地域の挑戦を、<br>ともに前へ進める会社。
         </p>
-        <p style="margin-top: 28px;">
-          モビリティからクリエイティブまで、<br>幅広いサービスで<strong>地域活性化</strong>に貢献します。
+        <p>
+          株式会社Skyward Growthは、地域の皆様の<strong>「北見市の挑戦」</strong>を総合的にサポートする会社です。モビリティからクリエイティブまで、幅広いサービスで<strong>地域活性化</strong>に貢献します。
         </p>
-        <p style="margin-top: 40px; font-family:'Cormorant Garamond',serif; font-size: 17px; color: var(--text-gray); letter-spacing: 0.12em; font-style: italic; font-weight: 400;">
-          — クルマも、SNSも、空撮も。<br>&nbsp;&nbsp;&nbsp;地域の挑戦には、SGの挑戦。
+        <p class="philosophy-quote">
+          クルマも、SNSも、空撮も。<br>地域の挑戦には、SGの挑戦。
         </p>
       </div>
 
