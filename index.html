@@ -1146,7 +1146,7 @@
       margin-bottom: 32px;
     }
     .business-service {
-      padding: 28px 26px;
+      padding: 36px 32px;
       background: #fff;
       border: 1px solid var(--border-soft);
       border-radius: 4px;
@@ -1186,24 +1186,24 @@
     }
     .biz-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 500;
       letter-spacing: 0.28em;
       color: var(--green-primary);
       display: block;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
     .business-service h4 {
       font-family: 'Shippori Mincho', serif;
-      font-size: 17px;
+      font-size: 22px;
       font-weight: 600;
       color: var(--text-dark);
       letter-spacing: 0.04em;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
       line-height: 1.5;
     }
     .business-service p {
-      font-size: 12.5px;
+      font-size: 13.5px;
       color: var(--text-mid);
       line-height: 1.95;
       letter-spacing: 0.02em;
@@ -1216,6 +1216,77 @@
       margin-bottom: 24px;
       padding-top: 16px;
       border-top: 1px dashed var(--border-soft);
+    }
+
+    /* STEP TOOLS LOGOS */
+    .step-tools-section {
+      margin-top: 8px;
+      margin-bottom: 32px;
+      padding: 32px 28px;
+      background: #fafafa;
+      border: 1px solid var(--border-soft);
+      border-radius: 4px;
+    }
+    .step-tools-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      color: var(--green-primary);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .step-tools-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+    }
+    .step-tools-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .step-tool-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 12px;
+      background: #fff;
+      border: 1px solid var(--border-soft);
+      border-radius: 6px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .step-tool-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(20,20,20,0.08);
+      border-color: var(--green-primary);
+    }
+    .step-tool-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+    .step-tool-name {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 900px) {
+      .step-tools-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .step-tool-item img { width: 68px; height: 68px; }
+    }
+    @media (max-width: 600px) {
+      .step-tools-section { padding: 24px 18px; }
+      .step-tools-title { font-size: 16px; }
+      .step-tool-item { padding: 16px 8px; gap: 10px; }
+      .step-tool-item img { width: 60px; height: 60px; }
+      .step-tool-name { font-size: 12.5px; }
     }
 
     @media (max-width: 900px) {
@@ -1252,8 +1323,8 @@
       .business-tab-tag { font-size: 11.5px; }
       .business-services-grid { grid-template-columns: 1fr; gap: 12px; }
       .business-service { padding: 22px 22px; }
-      .business-service h4 { font-size: 16px; }
-      .business-service p { font-size: 12px; }
+      .business-service h4 { font-size: 19px; }
+      .business-service p { font-size: 13px; }
       .business-panel-inner { padding: 36px 0 0; }
       .business-panel-head { margin-bottom: 32px; }
       .business-panel-num { font-size: 12px; margin-bottom: 12px; }
@@ -2108,6 +2179,28 @@
                   <span class="biz-num">05</span>
                   <h4>STEPツール導入支援</h4>
                   <p>LINE・メール・SNSの自動化ツール（ステップ配信）を厳選してご紹介。</p>
+                </div>
+              </div>
+              <div class="step-tools-section">
+                <span class="step-tools-label">— STEP Tools Lineup</span>
+                <h4 class="step-tools-title">取扱STEPツール</h4>
+                <div class="step-tools-grid">
+                  <div class="step-tool-item">
+                    <img src="images/step-tt.png" alt="TTステップ">
+                    <span class="step-tool-name">TTステップ</span>
+                  </div>
+                  <div class="step-tool-item">
+                    <img src="images/step-xtep.png" alt="XTEP">
+                    <span class="step-tool-name">XTEP</span>
+                  </div>
+                  <div class="step-tool-item">
+                    <img src="images/step-srep.png" alt="スレップ">
+                    <span class="step-tool-name">スレップ</span>
+                  </div>
+                  <div class="step-tool-item">
+                    <img src="images/step-i.png" alt="iステップ">
+                    <span class="step-tool-name">iステップ</span>
+                  </div>
                 </div>
               </div>
               <p class="business-panel-note">（株）ネルプ・グリン（株）正規代理店</p>
