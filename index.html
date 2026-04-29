@@ -15,12 +15,12 @@
     }
 
     :root {
-      /* Refined color palette */
-      --green-primary: #1f6b3a;
-      --green-deep: #134224;
-      --green-soft: #eaf2e9;
-      --green-mid: #5a9466;
-      --green-light: #d6e5d3;
+      /* Refined color palette - corporate sky blue */
+      --green-primary: #4aa3d9;
+      --green-deep: #1f5d80;
+      --green-soft: #eaf3fa;
+      --green-mid: #74b6d9;
+      --green-light: #c8dfee;
       --blue-primary: #355d80;
       --blue-soft: #e9eff4;
       --blue-light: #c9d8e4;
@@ -140,7 +140,7 @@
     }
 
     .btn-contact {
-      background: #4ec46a;
+      background: #4aa3d9;
       color: #fff !important;
       padding: 12px 28px;
       border-radius: 999px;
@@ -152,9 +152,9 @@
     }
 
     .btn-contact:hover {
-      background: #3da859;
+      background: #3a8db8;
       transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(78,196,106,0.35);
+      box-shadow: 0 6px 18px rgba(74,163,217,0.35);
     }
 
     /* Mobile menu */
@@ -801,7 +801,7 @@
     .philosophy-text strong {
       color: var(--green-primary);
       font-weight: 700;
-      background: linear-gradient(transparent 65%, rgba(31,107,58,0.12) 65%);
+      background: linear-gradient(transparent 65%, rgba(74,163,217,0.12) 65%);
       padding: 0 2px;
     }
     .philosophy-text p:first-of-type strong {
@@ -811,7 +811,7 @@
     .philosophy-quote {
       margin-top: 40px !important;
       padding: 24px 28px !important;
-      background: rgba(31,107,58,0.04);
+      background: rgba(74,163,217,0.04);
       border-radius: 4px;
       font-family: 'Shippori Mincho', 'Noto Serif JP', serif !important;
       font-size: 16px !important;
@@ -938,217 +938,329 @@
       letter-spacing: 0.03em;
     }
 
-    /* ===== BUSINESS ACCORDION ===== */
-    .business-accordion-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    /* ===== BUSINESS HOVER TABS ===== */
+    .business-tabs {
+      margin-top: 64px;
+      position: relative;
     }
-    .business-accordion {
-      background: #fff;
-      border: 1px solid var(--border-soft);
-      border-radius: 4px;
-      overflow: hidden;
-      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    .business-tab-headers {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+      position: relative;
     }
-    .business-accordion:hover {
-      border-color: var(--border-mid);
+    .business-tab-headers::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: var(--border-soft);
+      z-index: 1;
     }
-    .business-accordion.open {
-      border-color: var(--green-primary);
-      box-shadow: 0 16px 40px rgba(20,20,20,0.07);
+    /* Active indicator bar */
+    .business-tab-headers::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 50%;
+      height: 2px;
+      background: var(--green-primary);
+      transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+      z-index: 2;
     }
-    .business-accordion-header {
-      width: 100%;
+    .business-tabs[data-active="1"] .business-tab-headers::after {
+      transform: translateX(100%);
+    }
+
+    .business-tab-header {
       background: transparent;
       border: none;
       cursor: pointer;
-      padding: 36px 44px;
+      padding: 36px 40px;
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 28px;
       text-align: left;
-      transition: background 0.3s ease;
       font-family: inherit;
+      position: relative;
+      transition: background 0.4s ease;
+      overflow: hidden;
     }
-    .business-accordion-header:hover {
-      background: var(--bg-light);
-    }
-    .business-accordion.open .business-accordion-header {
+    .business-tab-header:hover,
+    .business-tab-header.active {
       background: var(--green-soft);
     }
-    .business-accordion-icon {
-      flex: 0 0 64px;
-      width: 64px;
-      height: 64px;
-      border-radius: 4px;
-      background: linear-gradient(135deg, var(--green-soft), var(--blue-soft));
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
+    .business-tab-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--green-soft) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .business-tab-header.active::before { opacity: 1; }
+
+    .business-tab-num {
+      flex: 0 0 auto;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
       color: var(--green-primary);
-      transition: transform 0.4s cubic-bezier(.2,.7,.2,1);
+      position: relative;
+      z-index: 2;
+      align-self: flex-start;
+      padding-top: 4px;
     }
-    .business-accordion.open .business-accordion-icon {
-      transform: rotate(-8deg) scale(1.05);
-    }
-    .business-accordion-title {
+
+    .business-tab-lines {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      z-index: 2;
     }
-    .business-accordion-en {
+    .business-tab-en {
       font-family: 'Cormorant Garamond', serif;
       font-size: 12px;
       font-weight: 500;
-      color: var(--green-primary);
       letter-spacing: 0.28em;
+      color: var(--text-soft);
       text-transform: uppercase;
-      margin-bottom: 8px;
     }
-    .business-accordion-title h3 {
+    .business-tab-header.active .business-tab-en,
+    .business-tab-header:hover .business-tab-en {
+      color: var(--green-primary);
+    }
+    .business-tab-title {
       font-family: 'Shippori Mincho', serif;
       font-size: 26px;
       font-weight: 600;
-      color: var(--text-dark);
       letter-spacing: 0.05em;
-      margin-bottom: 8px;
-      line-height: 1.4;
+      color: var(--text-dark);
+      line-height: 1.3;
+      transition: transform 0.4s cubic-bezier(.2,.7,.2,1), color 0.3s ease;
     }
-    .business-accordion-tag {
-      font-size: 13.5px;
+    .business-tab-header:hover .business-tab-title,
+    .business-tab-header.active .business-tab-title {
+      transform: translateX(4px);
+      color: var(--green-deep);
+    }
+    .business-tab-tag {
+      font-size: 13px;
       color: var(--text-mid);
-      letter-spacing: 0.04em;
-      line-height: 1.7;
+      letter-spacing: 0.03em;
+      line-height: 1.6;
     }
-    .business-accordion-chevron {
-      flex: 0 0 36px;
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--border-mid);
+
+    .business-tab-icon {
+      flex: 0 0 56px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--border-soft);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: var(--green-primary);
+      transition: transform 0.5s cubic-bezier(.2,.7,.2,1), border-color 0.3s ease, background 0.3s ease;
       position: relative;
-      transition: background 0.3s ease, border-color 0.3s ease, transform 0.4s cubic-bezier(.2,.7,.2,1);
+      z-index: 2;
     }
-    .business-accordion-chevron::before,
-    .business-accordion-chevron::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 12px;
-      height: 1.5px;
-      background: var(--text-dark);
-      transition: transform 0.4s cubic-bezier(.2,.7,.2,1), background 0.3s ease;
-      transform: translate(-50%, -50%);
-    }
-    .business-accordion-chevron::after {
-      transform: translate(-50%, -50%) rotate(90deg);
-    }
-    .business-accordion.open .business-accordion-chevron {
+    .business-tab-header:hover .business-tab-icon,
+    .business-tab-header.active .business-tab-icon {
       background: var(--green-primary);
       border-color: var(--green-primary);
-      transform: rotate(180deg);
+      color: #fff;
+      transform: rotate(-15deg) scale(1.06);
     }
-    .business-accordion.open .business-accordion-chevron::before,
-    .business-accordion.open .business-accordion-chevron::after {
-      background: #fff;
+
+    /* TAB PANELS */
+    .business-tab-panels {
+      position: relative;
+      min-height: 540px;
     }
-    .business-accordion.open .business-accordion-chevron::after {
-      transform: translate(-50%, -50%) rotate(0deg);
+    .business-tab-panel {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: opacity 0.55s cubic-bezier(.4,0,.2,1), transform 0.55s cubic-bezier(.4,0,.2,1), visibility 0s linear 0.55s;
+      pointer-events: none;
     }
-    .business-accordion-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.6s cubic-bezier(.2,.7,.2,1);
+    .business-tab-panel.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity 0.55s cubic-bezier(.4,0,.2,1), transform 0.55s cubic-bezier(.4,0,.2,1), visibility 0s linear;
+      pointer-events: auto;
     }
-    .business-accordion.open .business-accordion-body {
-      max-height: 1600px;
+
+    .business-panel-inner {
+      padding: 56px 0 0;
     }
-    .business-accordion-body-inner {
-      padding: 8px 44px 48px 140px;
-      border-top: 1px solid var(--border-soft);
+    .business-panel-head {
+      max-width: 720px;
+      margin-bottom: 48px;
     }
-    .business-accordion-lead {
-      font-size: 14.5px;
+    .business-panel-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      color: var(--green-primary);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .business-panel-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--text-dark);
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+    .business-panel-lead {
+      font-size: 15px;
       color: var(--text-mid);
       line-height: 2.05;
       letter-spacing: 0.03em;
-      padding-top: 32px;
-      margin-bottom: 36px;
-      max-width: 720px;
     }
-    .business-sub-grid {
+
+    .business-services-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px 32px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
       margin-bottom: 32px;
     }
-    .business-sub-item {
-      padding: 24px 28px;
-      background: var(--bg-light);
+    .business-service {
+      padding: 28px 26px;
+      background: #fff;
+      border: 1px solid var(--border-soft);
       border-radius: 4px;
-      border-left: 2px solid var(--green-primary);
-      transition: transform 0.3s ease, background 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
     }
-    .business-sub-item:hover {
-      transform: translateX(3px);
-      background: var(--green-soft);
+    .business-tab-panel.active .business-service {
+      animation: bizServiceIn 0.7s cubic-bezier(.2,.7,.2,1) forwards;
+      animation-delay: calc(0.15s + var(--i, 0) * 0.08s);
     }
-    .business-sub-num {
+    @keyframes bizServiceIn {
+      0% { opacity: 0; transform: translateY(24px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .business-service::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--green-primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+    }
+    .business-service:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(20,20,20,0.07);
+      border-color: var(--green-primary);
+    }
+    .business-service:hover::before {
+      transform: scaleX(1);
+    }
+    .biz-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 500;
-      color: var(--green-primary);
       letter-spacing: 0.28em;
+      color: var(--green-primary);
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
-    .business-sub-item h4 {
+    .business-service h4 {
       font-family: 'Shippori Mincho', serif;
       font-size: 17px;
       font-weight: 600;
       color: var(--text-dark);
       letter-spacing: 0.04em;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       line-height: 1.5;
     }
-    .business-sub-item p {
+    .business-service p {
       font-size: 12.5px;
       color: var(--text-mid);
-      line-height: 1.85;
+      line-height: 1.95;
       letter-spacing: 0.02em;
     }
-    .business-accordion-note {
+    .business-panel-note {
       font-size: 12px;
       color: var(--text-soft);
       letter-spacing: 0.04em;
+      margin-top: 8px;
       margin-bottom: 24px;
-      padding-top: 8px;
-      border-top: 1px dashed var(--border-soft);
       padding-top: 16px;
+      border-top: 1px dashed var(--border-soft);
     }
+
     @media (max-width: 900px) {
-      .business-accordion-header { padding: 28px 32px; gap: 24px; }
-      .business-accordion-icon { flex: 0 0 56px; width: 56px; height: 56px; font-size: 22px; }
-      .business-accordion-title h3 { font-size: 22px; }
-      .business-accordion-body-inner { padding: 8px 32px 40px 32px; }
-      .business-sub-grid { grid-template-columns: 1fr; gap: 14px; }
+      .business-tab-header { padding: 26px 24px; gap: 18px; }
+      .business-tab-icon { flex: 0 0 44px; width: 44px; height: 44px; font-size: 18px; }
+      .business-tab-num { font-size: 12px; padding-top: 2px; }
+      .business-tab-en { font-size: 11px; letter-spacing: 0.24em; }
+      .business-tab-title { font-size: 19px; }
+      .business-tab-tag { font-size: 12px; line-height: 1.55; }
+      .business-services-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .business-panel-title { font-size: 28px; }
+      .business-tab-panels { min-height: 720px; }
     }
     @media (max-width: 600px) {
-      .business-accordion-header { padding: 24px 24px; gap: 18px; }
-      .business-accordion-icon { flex: 0 0 48px; width: 48px; height: 48px; font-size: 20px; }
-      .business-accordion-en { font-size: 10.5px; letter-spacing: 0.24em; margin-bottom: 6px; }
-      .business-accordion-title h3 { font-size: 19px; margin-bottom: 6px; }
-      .business-accordion-tag { font-size: 12.5px; line-height: 1.65; }
-      .business-accordion-chevron { flex: 0 0 32px; width: 32px; height: 32px; }
-      .business-accordion-chevron::before,
-      .business-accordion-chevron::after { width: 10px; }
-      .business-accordion-body-inner { padding: 4px 24px 32px 24px; }
-      .business-accordion-lead { font-size: 13.5px; padding-top: 24px; margin-bottom: 28px; line-height: 1.95; }
-      .business-sub-item { padding: 20px 22px; }
-      .business-sub-item h4 { font-size: 16px; }
-      .business-sub-item p { font-size: 12px; }
-      .business-accordion-note { font-size: 11.5px; }
+      .business-tab-headers { grid-template-columns: 1fr; }
+      .business-tab-headers::before { display: none; }
+      .business-tab-headers::after {
+        width: 100%;
+        bottom: auto;
+        top: 0;
+        height: 2px;
+      }
+      .business-tabs[data-active="1"] .business-tab-headers::after {
+        transform: translateY(100%) translateX(0);
+      }
+      .business-tab-header {
+        padding: 22px 22px;
+        gap: 16px;
+        border-bottom: 1px solid var(--border-soft);
+      }
+      .business-tab-header:last-child { border-bottom: none; }
+      .business-tab-icon { flex: 0 0 40px; width: 40px; height: 40px; font-size: 16px; }
+      .business-tab-title { font-size: 18px; }
+      .business-tab-tag { font-size: 11.5px; }
+      .business-services-grid { grid-template-columns: 1fr; gap: 12px; }
+      .business-service { padding: 22px 22px; }
+      .business-service h4 { font-size: 16px; }
+      .business-service p { font-size: 12px; }
+      .business-panel-inner { padding: 36px 0 0; }
+      .business-panel-head { margin-bottom: 32px; }
+      .business-panel-num { font-size: 12px; margin-bottom: 12px; }
+      .business-panel-title { font-size: 24px; margin-bottom: 16px; }
+      .business-panel-lead { font-size: 13.5px; line-height: 1.95; }
+      .business-panel-note { font-size: 11.5px; }
+      .business-tab-panels { min-height: 980px; }
     }
 
 
@@ -1204,7 +1316,7 @@
     .btn-section-more:hover {
       background: var(--green-primary);
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(31,107,58,0.25);
+      box-shadow: 0 12px 28px rgba(74,163,217,0.25);
     }
     .btn-section-more:hover::after { transform: translateX(4px); }
 
@@ -1222,7 +1334,7 @@
       right: -200px;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(31,107,58,0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(74,163,217,0.15) 0%, transparent 70%);
       pointer-events: none;
     }
     #contact .section-title { color: #fff; }
@@ -1292,7 +1404,7 @@
       transform: translateY(-2px);
       background: var(--green-primary);
       color: #fff;
-      box-shadow: 0 16px 40px rgba(31,107,58,0.4);
+      box-shadow: 0 16px 40px rgba(74,163,217,0.4);
     }
     .contact-action .btn-contact-large:hover::after { transform: translateX(4px); }
 
@@ -1910,35 +2022,52 @@
       <h2 class="section-title">事業紹介</h2>
       <p class="section-desc">大きく分けて2つの事業領域で、地域の挑戦を多角的にサポートします。</p>
 
-      <div class="business-accordion-list" style="margin-top:64px;">
+      <div class="business-tabs" id="business-tabs">
 
-        <!-- モビリティ事業 -->
-        <div class="business-accordion">
-          <button class="business-accordion-header" type="button" onclick="this.parentElement.classList.toggle('open')">
-            <span class="business-accordion-icon">🚗</span>
-            <div class="business-accordion-title">
-              <p class="business-accordion-en">— Mobility</p>
-              <h3>モビリティ事業</h3>
-              <p class="business-accordion-tag">地域の移動を、トータルサポート。</p>
-            </div>
-            <span class="business-accordion-chevron"></span>
+        <!-- TAB HEADERS -->
+        <div class="business-tab-headers" role="tablist">
+          <button class="business-tab-header active" data-tab="0" type="button">
+            <span class="business-tab-num">01</span>
+            <span class="business-tab-lines">
+              <span class="business-tab-en">— Mobility</span>
+              <span class="business-tab-title">モビリティ事業</span>
+              <span class="business-tab-tag">地域の移動を、トータルサポート</span>
+            </span>
+            <span class="business-tab-icon">🚗</span>
           </button>
-          <div class="business-accordion-body">
-            <div class="business-accordion-body-inner">
-              <p class="business-accordion-lead">レンタカー・カーシェアなど、地域の移動をトータルサポート。法人・個人問わずご利用いただけます。長期利用やイベントなどでの特殊利用も相談可能です。</p>
-              <div class="business-sub-grid">
-                <div class="business-sub-item">
-                  <span class="business-sub-num">01</span>
+          <button class="business-tab-header" data-tab="1" type="button">
+            <span class="business-tab-num">02</span>
+            <span class="business-tab-lines">
+              <span class="business-tab-en">— Creative</span>
+              <span class="business-tab-title">クリエイティブ事業</span>
+              <span class="business-tab-tag">デジタルの力で、地域の魅力を発信</span>
+            </span>
+            <span class="business-tab-icon">✦</span>
+          </button>
+        </div>
+
+        <!-- TAB PANELS -->
+        <div class="business-tab-panels">
+          <div class="business-tab-panel active" data-panel="0">
+            <div class="business-panel-inner">
+              <div class="business-panel-head">
+                <span class="business-panel-num">— 01 / Mobility</span>
+                <h3 class="business-panel-title">モビリティ事業</h3>
+                <p class="business-panel-lead">レンタカー・カーシェアなど、地域の移動をトータルサポート。<br>法人・個人問わずご利用いただけます。長期利用やイベントなどでの特殊利用も相談可能です。</p>
+              </div>
+              <div class="business-services-grid">
+                <div class="business-service" style="--i:0">
+                  <span class="biz-num">01</span>
                   <h4>レンタカー</h4>
                   <p>短期から長期まで、用途に合わせた車両プランをご用意。</p>
                 </div>
-                <div class="business-sub-item">
-                  <span class="business-sub-num">02</span>
+                <div class="business-service" style="--i:1">
+                  <span class="biz-num">02</span>
                   <h4>カーシェアリング</h4>
                   <p>地域の方に向けた、手軽で柔軟な移動ソリューション。</p>
                 </div>
-                <div class="business-sub-item">
-                  <span class="business-sub-num">03</span>
+                <div class="business-service" style="--i:2">
+                  <span class="biz-num">03</span>
                   <h4>イベント・特殊利用</h4>
                   <p>撮影・運搬・ロケ用車両など、特殊な利用にも対応。</p>
                 </div>
@@ -1946,50 +2075,42 @@
               <a href="#contact" class="btn-more">この事業について問い合わせる</a>
             </div>
           </div>
-        </div>
 
-        <!-- クリエイティブ事業 -->
-        <div class="business-accordion">
-          <button class="business-accordion-header" type="button" onclick="this.parentElement.classList.toggle('open')">
-            <span class="business-accordion-icon">✦</span>
-            <div class="business-accordion-title">
-              <p class="business-accordion-en">— Creative</p>
-              <h3>クリエイティブ事業</h3>
-              <p class="business-accordion-tag">デジタル・映像・SNSで、地域の魅力を発信。</p>
-            </div>
-            <span class="business-accordion-chevron"></span>
-          </button>
-          <div class="business-accordion-body">
-            <div class="business-accordion-body-inner">
-              <p class="business-accordion-lead">SNS運用・映像制作・写真・WEB制作・自動化ツール導入まで。デジタル領域のあらゆる発信を、ワンストップで支援します。</p>
-              <div class="business-sub-grid">
-                <div class="business-sub-item">
-                  <span class="business-sub-num">01</span>
+          <div class="business-tab-panel" data-panel="1">
+            <div class="business-panel-inner">
+              <div class="business-panel-head">
+                <span class="business-panel-num">— 02 / Creative</span>
+                <h3 class="business-panel-title">クリエイティブ事業</h3>
+                <p class="business-panel-lead">SNS運用・映像制作・写真・WEB制作・自動化ツール導入まで。<br>デジタル領域のあらゆる発信を、ワンストップで支援します。</p>
+              </div>
+              <div class="business-services-grid">
+                <div class="business-service" style="--i:0">
+                  <span class="biz-num">01</span>
                   <h4>SNS総合支援</h4>
                   <p>運用代行・コンテンツ制作・広告運用まで。あなたに寄り添う伴走支援。</p>
                 </div>
-                <div class="business-sub-item">
-                  <span class="business-sub-num">02</span>
+                <div class="business-service" style="--i:1">
+                  <span class="biz-num">02</span>
                   <h4>映像制作</h4>
                   <p>ドローン撮影・PR動画・企業紹介動画など、映像の力で想いを届けます。</p>
                 </div>
-                <div class="business-sub-item">
-                  <span class="business-sub-num">03</span>
+                <div class="business-service" style="--i:2">
+                  <span class="biz-num">03</span>
                   <h4>写真撮影</h4>
                   <p>企業・イベント・商品撮影。ドローン空撮にも対応します。</p>
                 </div>
-                <div class="business-sub-item">
-                  <span class="business-sub-num">04</span>
+                <div class="business-service" style="--i:3">
+                  <span class="biz-num">04</span>
                   <h4>HP制作・ECサイト</h4>
                   <p>ホームページからECまで、ビジネスのオンライン展開を支援。</p>
                 </div>
-                <div class="business-sub-item">
-                  <span class="business-sub-num">05</span>
+                <div class="business-service" style="--i:4">
+                  <span class="biz-num">05</span>
                   <h4>STEPツール導入支援</h4>
                   <p>LINE・メール・SNSの自動化ツール（ステップ配信）を厳選してご紹介。</p>
                 </div>
               </div>
-              <p class="business-accordion-note">（株）ネルプ・グリン（株）正規代理店</p>
+              <p class="business-panel-note">（株）ネルプ・グリン（株）正規代理店</p>
               <a href="#contact" class="btn-more">この事業について問い合わせる</a>
             </div>
           </div>
@@ -2134,6 +2255,29 @@
         document.querySelector('.hamburger').classList.remove('active');
       });
     });
+
+    // ===== BUSINESS HOVER TABS =====
+    (function() {
+      const tabs = document.getElementById('business-tabs');
+      if (!tabs) return;
+      const headers = tabs.querySelectorAll('.business-tab-header');
+      const panels = tabs.querySelectorAll('.business-tab-panel');
+
+      function setActive(idx) {
+        tabs.dataset.active = idx;
+        headers.forEach((h, i) => h.classList.toggle('active', i === idx));
+        panels.forEach((p, i) => p.classList.toggle('active', i === idx));
+      }
+
+      headers.forEach((header, idx) => {
+        // Hover triggers tab change (the main behavior)
+        header.addEventListener('mouseenter', () => setActive(idx));
+        // Click also works (for touch / accessibility)
+        header.addEventListener('click', () => setActive(idx));
+        // Keyboard focus also triggers
+        header.addEventListener('focus', () => setActive(idx));
+      });
+    })();
 
     // ===== HERO SLIDESHOW =====
     (function() {
