@@ -1087,23 +1087,24 @@
     /* TAB PANELS */
     .business-tab-panels {
       position: relative;
-      min-height: 540px;
     }
     .business-tab-panel {
-      position: absolute;
-      inset: 0;
+      display: none;
       opacity: 0;
-      visibility: hidden;
       transform: translateY(20px);
-      transition: opacity 0.55s cubic-bezier(.4,0,.2,1), transform 0.55s cubic-bezier(.4,0,.2,1), visibility 0s linear 0.55s;
+      transition: opacity 0.55s cubic-bezier(.4,0,.2,1), transform 0.55s cubic-bezier(.4,0,.2,1);
       pointer-events: none;
     }
     .business-tab-panel.active {
+      display: block;
       opacity: 1;
-      visibility: visible;
       transform: translateY(0);
-      transition: opacity 0.55s cubic-bezier(.4,0,.2,1), transform 0.55s cubic-bezier(.4,0,.2,1), visibility 0s linear;
       pointer-events: auto;
+      animation: panelFadeIn 0.55s cubic-bezier(.4,0,.2,1);
+    }
+    @keyframes panelFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .business-panel-inner {
@@ -1298,7 +1299,6 @@
       .business-tab-tag { font-size: 12px; line-height: 1.55; }
       .business-services-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .business-panel-title { font-size: 28px; }
-      .business-tab-panels { min-height: 720px; }
     }
     @media (max-width: 600px) {
       .business-tab-headers { grid-template-columns: 1fr; }
@@ -1331,7 +1331,6 @@
       .business-panel-title { font-size: 24px; margin-bottom: 16px; }
       .business-panel-lead { font-size: 13.5px; line-height: 1.95; }
       .business-panel-note { font-size: 11.5px; }
-      .business-tab-panels { min-height: 980px; }
     }
 
 
@@ -2174,11 +2173,6 @@
                   <span class="biz-num">04</span>
                   <h4>HP制作・ECサイト</h4>
                   <p>ホームページからECまで、ビジネスのオンライン展開を支援。</p>
-                </div>
-                <div class="business-service" style="--i:4">
-                  <span class="biz-num">05</span>
-                  <h4>STEPツール導入支援</h4>
-                  <p>LINE・メール・SNSの自動化ツール（ステップ配信）を厳選してご紹介。</p>
                 </div>
               </div>
               <div class="step-tools-section">
