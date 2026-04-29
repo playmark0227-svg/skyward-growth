@@ -261,10 +261,24 @@
     }
 
     .overview-icon {
-      font-size: 32px;
-      margin-bottom: 20px;
-      display: block;
-      filter: grayscale(0.1);
+      width: 48px;
+      height: 48px;
+      margin-bottom: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--green-soft);
+      color: var(--green-primary);
+    }
+    .overview-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .overview-card h3 {
@@ -719,7 +733,6 @@
     }
 
     .concept-icon {
-      font-size: 32px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -727,8 +740,17 @@
       height: 56px;
       border-radius: 50%;
       background: var(--green-soft);
+      color: var(--green-primary);
       margin-bottom: 22px;
-      filter: grayscale(0.05);
+    }
+    .concept-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .concept-item strong {
@@ -1070,11 +1092,19 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
       color: var(--green-primary);
       transition: transform 0.5s cubic-bezier(.2,.7,.2,1), border-color 0.3s ease, background 0.3s ease;
       position: relative;
       z-index: 2;
+    }
+    .business-tab-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
     .business-tab-header:hover .business-tab-icon,
     .business-tab-header.active .business-tab-icon {
@@ -1259,6 +1289,9 @@
       background: #fff;
       border: 1px solid var(--border-soft);
       border-radius: 6px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
     .step-tool-item:hover {
@@ -1292,7 +1325,8 @@
 
     @media (max-width: 900px) {
       .business-tab-header { padding: 26px 24px; gap: 18px; }
-      .business-tab-icon { flex: 0 0 44px; width: 44px; height: 44px; font-size: 18px; }
+      .business-tab-icon { flex: 0 0 44px; width: 44px; height: 44px; }
+      .business-tab-icon svg { width: 20px; height: 20px; }
       .business-tab-num { font-size: 12px; padding-top: 2px; }
       .business-tab-en { font-size: 11px; letter-spacing: 0.24em; }
       .business-tab-title { font-size: 19px; }
@@ -1318,7 +1352,8 @@
         border-bottom: 1px solid var(--border-soft);
       }
       .business-tab-header:last-child { border-bottom: none; }
-      .business-tab-icon { flex: 0 0 40px; width: 40px; height: 40px; font-size: 16px; }
+      .business-tab-icon { flex: 0 0 40px; width: 40px; height: 40px; }
+      .business-tab-icon svg { width: 18px; height: 18px; }
       .business-tab-title { font-size: 18px; }
       .business-tab-tag { font-size: 11.5px; }
       .business-services-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -1610,7 +1645,8 @@
       /* Overview cards */
       .overview-card { padding: 40px 28px 36px; }
       .overview-num { font-size: 12px; margin-bottom: 18px; }
-      .overview-icon { font-size: 28px; margin-bottom: 16px; }
+      .overview-icon { width: 42px; height: 42px; margin-bottom: 16px; }
+      .overview-icon svg { width: 20px; height: 20px; }
       .overview-card h3 { font-size: 18px; margin-bottom: 10px; }
       .overview-card p { font-size: 13px; line-height: 1.95; }
 
@@ -1621,7 +1657,8 @@
       .philosophy-quote { font-size: 14px !important; padding: 22px 24px !important; margin-top: 32px !important; }
       .concept-grid { margin-top: 40px; gap: 16px; }
       .concept-item { padding: 28px 24px; }
-      .concept-icon { font-size: 22px; margin-bottom: 14px; }
+      .concept-icon { width: 48px; height: 48px; margin-bottom: 14px; }
+      .concept-icon svg { width: 22px; height: 22px; }
       .concept-item strong { font-size: 16px; margin-bottom: 10px; }
       .concept-item p { font-size: 12.5px; line-height: 1.95; }
 
@@ -1995,13 +2032,17 @@
       <div class="overview-grid overview-grid-2 fade-in stagger-children">
         <div class="overview-card">
           <div class="overview-num">01</div>
-          <div class="overview-icon">🚗</div>
+          <div class="overview-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 17h14M5 17v-5l2-5h10l2 5v5M5 17v2a1 1 0 001 1h1a1 1 0 001-1v-2m9 0v2a1 1 0 001 1h1a1 1 0 001-1v-2"/><circle cx="8" cy="14.5" r="1"/><circle cx="16" cy="14.5" r="1"/></svg>
+          </div>
           <h3>モビリティ事業</h3>
           <p>レンタカー・カーシェアなど、地域の移動をトータルサポート。法人・個人問わずご利用いただけます。</p>
         </div>
         <div class="overview-card">
           <div class="overview-num">02</div>
-          <div class="overview-icon">✦</div>
+          <div class="overview-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg>
+          </div>
           <h3>クリエイティブ事業</h3>
           <p>SNS運用・映像制作・写真撮影・WEB制作・自動化ツール導入まで、デジタル発信をワンストップで支援。</p>
         </div>
@@ -2031,17 +2072,23 @@
 
       <div class="concept-grid fade-in stagger-children">
         <div class="concept-item">
-          <span class="concept-icon">⚡</span>
+          <span class="concept-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          </span>
           <strong>地域密着で迅速対応</strong>
           <p>北見を拠点に、地域に根ざした素早いサポートを提供します。</p>
         </div>
         <div class="concept-item">
-          <span class="concept-icon">🤝</span>
+          <span class="concept-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/></svg>
+          </span>
           <strong>丸投げもできるサービス</strong>
           <p>企画から運用まで、ワンストップでお任せいただけます。</p>
         </div>
         <div class="concept-item">
-          <span class="concept-icon">💡</span>
+          <span class="concept-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 014 10.5c-.6.6-1 1.5-1 2.5v0H9c0-1-.4-1.9-1-2.5A6 6 0 0112 3z"/></svg>
+          </span>
           <strong>丁寧なヒアリングと提案力</strong>
           <p>お客様のニーズに寄り添い、最適な解決策をご提案します。</p>
         </div>
@@ -2103,7 +2150,9 @@
               <span class="business-tab-title">モビリティ事業</span>
               <span class="business-tab-tag">地域の移動を、トータルサポート</span>
             </span>
-            <span class="business-tab-icon">🚗</span>
+            <span class="business-tab-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 17h14M5 17v-5l2-5h10l2 5v5M5 17v2a1 1 0 001 1h1a1 1 0 001-1v-2m9 0v2a1 1 0 001 1h1a1 1 0 001-1v-2"/><circle cx="8" cy="14.5" r="1"/><circle cx="16" cy="14.5" r="1"/></svg>
+            </span>
           </button>
           <button class="business-tab-header" data-tab="1" type="button">
             <span class="business-tab-num">02</span>
@@ -2112,7 +2161,9 @@
               <span class="business-tab-title">クリエイティブ事業</span>
               <span class="business-tab-tag">デジタルの力で、地域の魅力を発信</span>
             </span>
-            <span class="business-tab-icon">✦</span>
+            <span class="business-tab-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg>
+            </span>
           </button>
         </div>
 
@@ -2179,22 +2230,22 @@
                 <span class="step-tools-label">— STEP Tools Lineup</span>
                 <h4 class="step-tools-title">取扱STEPツール</h4>
                 <div class="step-tools-grid">
-                  <div class="step-tool-item">
+                  <a href="https://ttstep.jp/lp?agt-r3wo4gx" target="_blank" rel="noopener" class="step-tool-item">
                     <img src="images/step-tt.png" alt="TTステップ">
                     <span class="step-tool-name">TTステップ</span>
-                  </div>
-                  <div class="step-tool-item">
+                  </a>
+                  <a href="https://xtep.tools/lp?agt-i2doz8e" target="_blank" rel="noopener" class="step-tool-item">
                     <img src="images/step-xtep.png" alt="XTEP">
                     <span class="step-tool-name">XTEP</span>
-                  </div>
-                  <div class="step-tool-item">
+                  </a>
+                  <a href="https://threp.jp/lp?agt-t50vwdq" target="_blank" rel="noopener" class="step-tool-item">
                     <img src="images/step-srep.png" alt="スレップ">
                     <span class="step-tool-name">スレップ</span>
-                  </div>
-                  <div class="step-tool-item">
+                  </a>
+                  <a href="https://istep.click/lp?agt-xl5t7df" target="_blank" rel="noopener" class="step-tool-item">
                     <img src="images/step-i.png" alt="iステップ">
                     <span class="step-tool-name">iステップ</span>
-                  </div>
+                  </a>
                 </div>
               </div>
               <p class="business-panel-note">（株）ネルプ・グリン（株）正規代理店</p>
