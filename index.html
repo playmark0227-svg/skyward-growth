@@ -238,6 +238,10 @@
       text-align: left;
       position: relative;
       transition: background 0.4s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      cursor: pointer;
     }
 
     .overview-card:hover {
@@ -707,6 +711,10 @@
       position: relative;
       transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
       counter-increment: concept-counter;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      cursor: pointer;
     }
     .concept-grid {
       counter-reset: concept-counter;
@@ -1186,6 +1194,10 @@
       opacity: 0;
       transform: translateY(20px);
       transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      cursor: pointer;
     }
     .business-tab-panel.active .business-service {
       animation: bizServiceIn 0.7s cubic-bezier(.2,.7,.2,1) forwards;
@@ -1873,6 +1885,9 @@
       border: 1px solid var(--border-soft);
       display: flex;
       flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
     }
     .works-display-card:hover {
       transform: translateY(-6px);
@@ -2039,22 +2054,22 @@
       <h2 class="section-title">Skyward Growthとは</h2>
       <p class="section-desc">北海道北見市を拠点に、<strong style="color:var(--green-primary);font-weight:700;">モビリティ事業</strong>と<strong style="color:var(--green-primary);font-weight:700;">クリエイティブ事業</strong>の2つの軸で地域の課題を解決します。「丸投げOK」のワンストップサービスで、地域のビジネスを加速させます。</p>
       <div class="overview-grid overview-grid-2 fade-in stagger-children">
-        <div class="overview-card">
+        <a class="overview-card" href="#business" data-tab-target="0">
           <div class="overview-num">01</div>
           <div class="overview-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M5 17h14M5 17v-5l2-5h10l2 5v5M5 17v2a1 1 0 001 1h1a1 1 0 001-1v-2m9 0v2a1 1 0 001 1h1a1 1 0 001-1v-2"/><circle cx="8" cy="14.5" r="1"/><circle cx="16" cy="14.5" r="1"/></svg>
           </div>
           <h3>モビリティ事業</h3>
           <p>レンタカー・カーシェアなど、地域の移動をトータルサポート。法人・個人問わずご利用いただけます。</p>
-        </div>
-        <div class="overview-card">
+        </a>
+        <a class="overview-card" href="#business" data-tab-target="1">
           <div class="overview-num">02</div>
           <div class="overview-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg>
           </div>
           <h3>クリエイティブ事業</h3>
           <p>SNS運用・映像制作・写真撮影・WEB制作・自動化ツール導入まで、デジタル発信をワンストップで支援。</p>
-        </div>
+        </a>
       </div>
       <div style="margin-top:64px;">
         <a href="#business" class="btn-section-more">事業詳細を見る</a>
@@ -2080,27 +2095,27 @@
       </div>
 
       <div class="concept-grid fade-in stagger-children">
-        <div class="concept-item">
+        <a class="concept-item" href="#contact">
           <span class="concept-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
           </span>
           <strong>地域密着で迅速対応</strong>
           <p>北見を拠点に、地域に根ざした素早いサポートを提供します。</p>
-        </div>
-        <div class="concept-item">
+        </a>
+        <a class="concept-item" href="#contact">
           <span class="concept-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/></svg>
           </span>
           <strong>丸投げもできるサービス</strong>
           <p>企画から運用まで、ワンストップでお任せいただけます。</p>
-        </div>
-        <div class="concept-item">
+        </a>
+        <a class="concept-item" href="#contact">
           <span class="concept-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 014 10.5c-.6.6-1 1.5-1 2.5v0H9c0-1-.4-1.9-1-2.5A6 6 0 0112 3z"/></svg>
           </span>
           <strong>丁寧なヒアリングと提案力</strong>
           <p>お客様のニーズに寄り添い、最適な解決策をご提案します。</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -2186,21 +2201,21 @@
                 <p class="business-panel-lead">レンタカー・カーシェアなど、地域の移動をトータルサポート。<br>法人・個人問わずご利用いただけます。長期利用やイベントなどでの特殊利用も相談可能です。</p>
               </div>
               <div class="business-services-grid">
-                <div class="business-service" style="--i:0">
+                <a class="business-service" href="#contact" style="--i:0">
                   <span class="biz-num">01</span>
                   <h4>レンタカー</h4>
                   <p>短期から長期まで、用途に合わせた車両プランをご用意。</p>
-                </div>
-                <div class="business-service" style="--i:1">
+                </a>
+                <a class="business-service" href="#contact" style="--i:1">
                   <span class="biz-num">02</span>
                   <h4>カーシェアリング</h4>
                   <p>地域の方に向けた、手軽で柔軟な移動ソリューション。</p>
-                </div>
-                <div class="business-service" style="--i:2">
+                </a>
+                <a class="business-service" href="#contact" style="--i:2">
                   <span class="biz-num">03</span>
                   <h4>イベント・特殊利用</h4>
                   <p>撮影・運搬・ロケ用車両など、特殊な利用にも対応。</p>
-                </div>
+                </a>
               </div>
               <a href="#contact" class="btn-more">この事業について問い合わせる</a>
             </div>
@@ -2214,26 +2229,26 @@
                 <p class="business-panel-lead">SNS運用・映像制作・写真・WEB制作・自動化ツール導入まで。<br>デジタル領域のあらゆる発信を、ワンストップで支援します。</p>
               </div>
               <div class="business-services-grid">
-                <div class="business-service" style="--i:0">
+                <a class="business-service" href="#contact" style="--i:0">
                   <span class="biz-num">01</span>
                   <h4>SNS総合支援</h4>
                   <p>Instagram・TikTok・X・YouTubeなど媒体ごとの戦略設計から、コンテンツ企画・撮影・編集・投稿運用代行、広告運用、データ分析・改善提案まで一気通貫でサポート。地域企業・店舗のファンづくりと売上拡大に伴走します。</p>
-                </div>
-                <div class="business-service" style="--i:1">
+                </a>
+                <a class="business-service" href="#contact" style="--i:1">
                   <span class="biz-num">02</span>
                   <h4>映像制作</h4>
                   <p>ドローン撮影・PR動画・企業紹介動画など、映像の力で想いを届けます。</p>
-                </div>
-                <div class="business-service" style="--i:2">
+                </a>
+                <a class="business-service" href="#contact" style="--i:2">
                   <span class="biz-num">03</span>
                   <h4>写真撮影</h4>
                   <p>企業・イベント・商品撮影。ドローン空撮にも対応します。</p>
-                </div>
-                <div class="business-service" style="--i:3">
+                </a>
+                <a class="business-service" href="#contact" style="--i:3">
                   <span class="biz-num">04</span>
                   <h4>HP制作・ECサイト</h4>
                   <p>ホームページからECまで、ビジネスのオンライン展開を支援。</p>
-                </div>
+                </a>
               </div>
               <div class="step-tools-section">
                 <span class="step-tools-label">— STEP Tools Lineup</span>
@@ -2425,6 +2440,14 @@
         // Keyboard focus also triggers
         header.addEventListener('focus', () => setActive(idx));
       });
+
+      // Overview cards: when clicked, switch to the matching business tab.
+      document.querySelectorAll('.overview-card[data-tab-target]').forEach(card => {
+        card.addEventListener('click', () => {
+          const idx = parseInt(card.dataset.tabTarget, 10);
+          if (!isNaN(idx)) setActive(idx);
+        });
+      });
     })();
 
     // ===== HERO SLIDESHOW =====
@@ -2511,8 +2534,11 @@
           const d = new Date(w.date);
           return d.getFullYear() + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + String(d.getDate()).padStart(2,'0');
         })();
+        const linkUrl = w.url || 'blog.html';
+        const isExternal = /^https?:\/\//.test(linkUrl);
+        const targetAttr = isExternal ? ' target="_blank" rel="noopener"' : '';
         return `
-        <div class="works-display-card">
+        <a class="works-display-card" href="${linkUrl}"${targetAttr}>
           ${w.image ? '<img class="works-display-card-img" src="' + w.image + '" alt="' + w.title + '">' : '<div class="works-display-card-img" style="display:flex;align-items:center;justify-content:center;font-size:40px;opacity:0.3;">📷</div>'}
           <div class="works-display-card-body">
             <span class="works-display-cat">${w.category}</span>
@@ -2520,7 +2546,7 @@
             <p>${w.description}</p>
             <div class="works-display-date">${dateStr}</div>
           </div>
-        </div>`;
+        </a>`;
       }).join('');
     })();
   </script>
