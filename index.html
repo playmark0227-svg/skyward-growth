@@ -1298,50 +1298,121 @@
     .step-tools-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
-    .step-tool-item {
+    .step-tool-card {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      padding: 20px 12px;
+      padding: 26px 22px 24px;
       background: #fff;
       border: 1px solid var(--border-soft);
-      border-radius: 6px;
+      border-radius: 14px;
       text-decoration: none;
       color: inherit;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
-    .step-tool-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(20,20,20,0.08);
+    .step-tool-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(20,20,20,0.1);
       border-color: var(--green-primary);
     }
-    .step-tool-item img {
-      width: 80px;
-      height: 80px;
+    .step-tool-platform {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--green-primary);
+      background: #e9f3fb;
+      padding: 5px 14px;
+      border-radius: 18px;
+      letter-spacing: 0.05em;
+      margin-bottom: 18px;
+    }
+    .step-tool-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .step-tool-head img {
+      width: 48px;
+      height: 48px;
       object-fit: contain;
+      border-radius: 10px;
+      flex-shrink: 0;
     }
     .step-tool-name {
       font-family: 'Shippori Mincho', serif;
-      font-size: 14px;
+      font-size: 19px;
       font-weight: 600;
       color: var(--text-dark);
       letter-spacing: 0.04em;
     }
-    @media (max-width: 900px) {
+    .step-tool-desc {
+      font-size: 12.5px;
+      color: var(--text-mid);
+      line-height: 1.85;
+      letter-spacing: 0.03em;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+    .step-tool-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .step-tool-features li {
+      font-size: 12.5px;
+      color: var(--text-mid);
+      letter-spacing: 0.03em;
+      position: relative;
+      padding-left: 24px;
+      line-height: 1.5;
+    }
+    .step-tool-features li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1.5px solid var(--green-primary);
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234aa3d9' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='5 12 10 17 19 7'/></svg>");
+      background-position: center;
+      background-size: 10px;
+      background-repeat: no-repeat;
+    }
+    .step-tool-cta {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--green-primary);
+      letter-spacing: 0.06em;
+      margin-top: auto;
+      transition: gap 0.3s ease;
+    }
+    .step-tool-cta::after {
+      content: ' →';
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+    .step-tool-card:hover .step-tool-cta::after {
+      transform: translateX(4px);
+    }
+    @media (max-width: 1024px) {
       .step-tools-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-      .step-tool-item img { width: 68px; height: 68px; }
     }
     @media (max-width: 600px) {
       .step-tools-section { padding: 24px 18px; }
       .step-tools-title { font-size: 16px; }
       .step-tools-desc { font-size: 12.5px; line-height: 1.85; margin-bottom: 18px; }
-      .step-tool-item { padding: 16px 8px; gap: 10px; }
-      .step-tool-item img { width: 60px; height: 60px; }
-      .step-tool-name { font-size: 12.5px; }
+      .step-tools-grid { grid-template-columns: 1fr; gap: 12px; }
+      .step-tool-card { padding: 22px 20px 20px; }
+      .step-tool-name { font-size: 17px; }
     }
 
     @media (max-width: 900px) {
@@ -2255,21 +2326,61 @@
                 <h4 class="step-tools-title">取扱STEPツール</h4>
                 <p class="step-tools-desc">各SNSに特化したSaaSツールを通じて、自動DM返信・キャンペーン自動化・予約投稿・AI投稿生成などで、企業やインフルエンサーの売り上げ最大化を支援します。</p>
                 <div class="step-tools-grid">
-                  <a href="https://ttstep.jp/lp?agt-r3wo4gx" target="_blank" rel="noopener" class="step-tool-item">
-                    <img src="images/step-tt.png" alt="TTステップ">
-                    <span class="step-tool-name">TTステップ</span>
+                  <a href="https://istep.click/lp?agt-xl5t7df" target="_blank" rel="noopener" class="step-tool-card">
+                    <span class="step-tool-platform">Instagram</span>
+                    <div class="step-tool-head">
+                      <img src="images/step-i.png" alt="iステップ">
+                      <span class="step-tool-name">iステップ</span>
+                    </div>
+                    <p class="step-tool-desc">Instagramの自動運用ツール。フィード投稿・リール・ストーリーズ・ライブへのコメントに対して自動DM送信が可能。Meta公式APIを使用した安全なシステムで、キャンペーン施策やクーポン配布を自動化し、売上最大化を実現します。</p>
+                    <ul class="step-tool-features">
+                      <li>コメント自動DM返信</li>
+                      <li>キャンペーン自動化</li>
+                      <li>クーポン自動配布</li>
+                    </ul>
+                    <span class="step-tool-cta">詳しく見る</span>
                   </a>
-                  <a href="https://xtep.tools/lp?agt-i2doz8e" target="_blank" rel="noopener" class="step-tool-item">
-                    <img src="images/step-xtep.png" alt="XTEP">
-                    <span class="step-tool-name">XTEP</span>
+                  <a href="https://xtep.tools/lp?agt-i2doz8e" target="_blank" rel="noopener" class="step-tool-card">
+                    <span class="step-tool-platform">X(旧Twitter)</span>
+                    <div class="step-tool-head">
+                      <img src="images/step-xtep.png" alt="XTEP">
+                      <span class="step-tool-name">XTEP</span>
+                    </div>
+                    <p class="step-tool-desc">X（旧Twitter）の運用を効率化・自動化する機能拡張ツール。自動返信・抽選キャンペーン・予約投稿機能を備え、X公式APIを使用してフォロワー獲得と売上拡大をサポートします。</p>
+                    <ul class="step-tool-features">
+                      <li>自動DM・リプライ</li>
+                      <li>抽選キャンペーン</li>
+                      <li>予約投稿</li>
+                    </ul>
+                    <span class="step-tool-cta">詳しく見る</span>
                   </a>
-                  <a href="https://threp.jp/lp?agt-t50vwdq" target="_blank" rel="noopener" class="step-tool-item">
-                    <img src="images/step-srep.png" alt="スレップ">
-                    <span class="step-tool-name">スレップ</span>
+                  <a href="https://threp.jp/lp?agt-t50vwdq" target="_blank" rel="noopener" class="step-tool-card">
+                    <span class="step-tool-platform">Threads / X</span>
+                    <div class="step-tool-head">
+                      <img src="images/step-srep.png" alt="スレップ">
+                      <span class="step-tool-name">スレップ</span>
+                    </div>
+                    <p class="step-tool-desc">ThreadsとXの投稿・返信・分析を自動化できるSNS運用支援ツール。AIによる高品質な投稿生成や自動返信、リスト獲得機能で、日々のSNS運用を効率化します。</p>
+                    <ul class="step-tool-features">
+                      <li>AI投稿自動生成</li>
+                      <li>自動返信</li>
+                      <li>分析・リスト獲得</li>
+                    </ul>
+                    <span class="step-tool-cta">詳しく見る</span>
                   </a>
-                  <a href="https://istep.click/lp?agt-xl5t7df" target="_blank" rel="noopener" class="step-tool-item">
-                    <img src="images/step-i.png" alt="iステップ">
-                    <span class="step-tool-name">iステップ</span>
+                  <a href="https://ttstep.jp/lp?agt-r3wo4gx" target="_blank" rel="noopener" class="step-tool-card">
+                    <span class="step-tool-platform">TikTok</span>
+                    <div class="step-tool-head">
+                      <img src="images/step-tt.png" alt="TTステップ">
+                      <span class="step-tool-name">TTステップ</span>
+                    </div>
+                    <p class="step-tool-desc">TikTokのDM返信・抽選キャンペーンを自動化できる支援ツール。公式APIを使用し、TikTok運用の成果最大化をサポートします。</p>
+                    <ul class="step-tool-features">
+                      <li>DM自動返信</li>
+                      <li>抽選キャンペーン</li>
+                      <li>エンゲージメント向上</li>
+                    </ul>
+                    <span class="step-tool-cta">詳しく見る</span>
                   </a>
                 </div>
               </div>
