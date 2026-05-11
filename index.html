@@ -608,7 +608,63 @@
       max-width: 680px;
     }
 
-
+    /* ===== STATS BAND ===== */
+    #stats {
+      background: linear-gradient(135deg, #1e54d6 0%, #2563eb 100%);
+      padding: 88px 40px;
+      color: #fff;
+    }
+    .stats-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .stat-item {
+      text-align: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .stat-number {
+      font-family: 'Inter', sans-serif;
+      font-size: 88px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      margin-bottom: 18px;
+      color: #fff;
+    }
+    .stat-label {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .stat-desc {
+      font-size: 13px;
+      line-height: 1.75;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.78);
+      max-width: 240px;
+    }
+    @media (max-width: 1024px) {
+      #stats { padding: 72px 32px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 48px 24px; }
+      .stat-number { font-size: 72px; }
+    }
+    @media (max-width: 600px) {
+      #stats { padding: 56px 24px; }
+      .stats-grid { gap: 40px 16px; }
+      .stat-number { font-size: 60px; margin-bottom: 12px; }
+      .stat-label { font-size: 14px; }
+      .stat-desc { font-size: 12px; }
+    }
 
     /* ===== STEP TOOLS ===== */
     .step-grid {
@@ -2114,6 +2170,35 @@
     <div class="hero-slide-indicators">
       <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
       <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
+    </div>
+  </section>
+
+
+  <!-- STATS BAND -->
+  <section id="stats">
+    <div class="stats-inner fade-in stagger-children">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">2つ</span>
+          <span class="stat-label">の事業領域</span>
+          <span class="stat-desc">モビリティ × クリエイティブ</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">6+</span>
+          <span class="stat-label">SNSプラットフォーム</span>
+          <span class="stat-desc">Instagram, X, Threads, TikTok, Facebook</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">7+</span>
+          <span class="stat-label">のサービス</span>
+          <span class="stat-desc">カーシェアからドローン撮影まで</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2社</span>
+          <span class="stat-label">正規代理店</span>
+          <span class="stat-desc">ネルプ・グリン認定パートナー</span>
+        </div>
+      </div>
     </div>
   </section>
 
