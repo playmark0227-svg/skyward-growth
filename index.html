@@ -1549,6 +1549,269 @@
     }
     .btn-more:hover::after { transform: translateX(2px); }
 
+    /* ===== MOBILITY BOOKING + PRICING ===== */
+    .panel-action-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      margin-bottom: 28px;
+    }
+    .btn-booking {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: var(--green-primary);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      font-family: inherit;
+    }
+    .btn-booking::after {
+      content: '→';
+      transition: transform 0.3s ease;
+    }
+    .btn-booking:hover {
+      background: #1f88c3;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(74,163,217,0.25);
+    }
+    .btn-booking:hover::after { transform: translateX(4px); }
+    .btn-booking.btn-booking-outline {
+      background: transparent;
+      color: var(--green-primary);
+      border: 1.5px solid var(--green-primary);
+    }
+    .btn-booking.btn-booking-outline:hover {
+      background: var(--green-primary);
+      color: #fff;
+    }
+
+    .pricing-block {
+      margin-top: 40px;
+      padding: 36px 32px 32px;
+      background: #fafbfc;
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+    }
+    .pricing-block-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .pricing-block-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      color: var(--green-primary);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .pricing-block-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-dark);
+      letter-spacing: 0.04em;
+    }
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+    .pricing-table thead th {
+      text-align: left;
+      padding: 14px 16px;
+      background: #f0f4f9;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text-mid);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .pricing-table thead th:first-child { border-radius: 8px 0 0 0; }
+    .pricing-table thead th:last-child { border-radius: 0 8px 0 0; }
+    .pricing-table tbody td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border-soft);
+      color: var(--text-mid);
+      vertical-align: top;
+      line-height: 1.7;
+    }
+    .pricing-table tbody tr:last-child td { border-bottom: none; }
+    .pricing-table tbody td:first-child {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .pricing-table tbody td.pricing-amount {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: var(--green-primary);
+      font-size: 15px;
+      letter-spacing: 0.02em;
+    }
+    .pricing-note {
+      margin-top: 18px;
+      font-size: 11.5px;
+      color: var(--text-soft);
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+    }
+    .pricing-cta-row {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 700px) {
+      .pricing-block { padding: 24px 18px 22px; }
+      .pricing-block-title { font-size: 18px; }
+      .pricing-table { font-size: 12.5px; }
+      .pricing-table thead th { padding: 10px 10px; font-size: 11px; }
+      .pricing-table tbody td { padding: 12px 10px; font-size: 12px; }
+      .pricing-table tbody td:first-child { font-size: 13px; }
+      .pricing-table tbody td.pricing-amount { font-size: 13px; }
+      .pricing-table thead th:nth-child(4),
+      .pricing-table tbody td:nth-child(4) { display: none; }
+    }
+
+    /* ===== BOOKING MODAL ===== */
+    .booking-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,10,0.65);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 48px 20px;
+    }
+    .booking-modal.active { display: block; }
+    .booking-modal-content {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 48px 44px;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.3);
+    }
+    .booking-modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #f4f4f4;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--text-mid);
+      transition: background 0.3s, transform 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .booking-modal-close:hover { background: #e5e5e5; transform: rotate(90deg); }
+    .booking-modal-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      color: var(--green-primary);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .booking-modal-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 28px;
+      letter-spacing: 0.04em;
+    }
+    .booking-flow-card {
+      margin-bottom: 20px;
+      padding: 24px 24px;
+      background: #fafbfc;
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
+    }
+    .booking-flow-card h4 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .booking-flow-card h4 .booking-flow-badge {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--green-primary);
+      background: #e9f3fb;
+      padding: 3px 10px;
+      border-radius: 12px;
+      letter-spacing: 0.06em;
+    }
+    .booking-flow-steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: step;
+    }
+    .booking-flow-steps li {
+      counter-increment: step;
+      padding-left: 36px;
+      position: relative;
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.85;
+      margin-bottom: 8px;
+    }
+    .booking-flow-steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 1px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--green-primary);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+    }
+    @media (max-width: 600px) {
+      .booking-modal-content { padding: 36px 22px; }
+      .booking-modal-title { font-size: 22px; }
+      .booking-flow-card { padding: 18px 18px; }
+    }
+
     .btn-section-more {
       display: inline-flex;
       align-items: center;
@@ -2133,6 +2396,44 @@
   <!-- BACK TO TOP -->
   <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="ページトップへ">↑</button>
 
+  <!-- BOOKING METHOD MODAL -->
+  <div id="booking-modal" class="booking-modal" onclick="if(event.target===this){this.classList.remove('active');document.body.style.overflow='';}">
+    <div class="booking-modal-content">
+      <button type="button" class="booking-modal-close" onclick="document.getElementById('booking-modal').classList.remove('active');document.body.style.overflow='';" aria-label="閉じる">×</button>
+      <span class="booking-modal-label">— How to Book</span>
+      <h3 class="booking-modal-title">ご予約方法</h3>
+
+      <div class="booking-flow-card">
+        <h4><span class="booking-flow-badge">01</span>学生向けカーシェア</h4>
+        <ol class="booking-flow-steps">
+          <li>Pattoアプリをダウンロード（App Store / Google Play）</li>
+          <li>学生証で会員登録（無料）</li>
+          <li>アプリから車両・時間を選んで予約 → 即時利用OK</li>
+        </ol>
+      </div>
+
+      <div class="booking-flow-card">
+        <h4><span class="booking-flow-badge">02</span>レンタカー</h4>
+        <ol class="booking-flow-steps">
+          <li>公式LINEを友だち追加</li>
+          <li>希望日時・車種・利用目的をトークで送信</li>
+          <li>当社より見積・予約確認の返信 → 当日受け渡し</li>
+        </ol>
+      </div>
+
+      <div class="booking-flow-card">
+        <h4><span class="booking-flow-badge">03</span>キッチンカーレンタル</h4>
+        <ol class="booking-flow-steps">
+          <li>お問い合わせフォーム or 公式LINEからご連絡</li>
+          <li>用途・日程・必要設備をヒアリング</li>
+          <li>お見積もり・契約 → 当日納車・運営サポート</li>
+        </ol>
+      </div>
+
+      <p class="pricing-note" style="margin-top:24px;text-align:center;">ご不明な点はお気軽にお問い合わせください。<br>2営業日以内にご返信いたします。</p>
+    </div>
+  </div>
+
 
   <!-- HEADER -->
   <header>
@@ -2355,6 +2656,10 @@
                 <span class="business-panel-num">— 01 / Mobility</span>
                 <h3 class="business-panel-title">モビリティ事業</h3>
                 <p class="business-panel-lead">学生やビジネスの移動をもっと自由に。<br>カーシェア、レンタカー、キッチンカーレンタルで、あらゆるモビリティニーズに応えます。</p>
+                <div class="panel-action-row">
+                  <button type="button" class="btn-booking" onclick="document.getElementById('booking-modal').classList.add('active'); document.body.style.overflow='hidden';">予約方法を見る</button>
+                  <a href="#contact" class="btn-booking btn-booking-outline">お問い合わせ</a>
+                </div>
               </div>
               <div class="business-services-grid">
                 <a class="business-service" href="#contact" style="--i:0">
@@ -2373,7 +2678,50 @@
                   <p>イベントや開業に最適なキッチンカーのレンタルサービス。必要な時に、必要な分だけ。</p>
                 </a>
               </div>
-              <a href="#contact" class="btn-more">この事業について問い合わせる</a>
+
+              <div class="pricing-block">
+                <div class="pricing-block-head">
+                  <div>
+                    <span class="pricing-block-label">— Price List</span>
+                    <h4 class="pricing-block-title">料金表</h4>
+                  </div>
+                </div>
+                <table class="pricing-table">
+                  <thead>
+                    <tr>
+                      <th>サービス</th>
+                      <th>短時間</th>
+                      <th>1日</th>
+                      <th>備考</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>学生向けカーシェア</td>
+                      <td class="pricing-amount">¥220 / 15分</td>
+                      <td class="pricing-amount">¥4,290〜</td>
+                      <td>Patto会員登録・学生限定</td>
+                    </tr>
+                    <tr>
+                      <td>レンタカー</td>
+                      <td class="pricing-amount">¥3,300 / 6時間〜</td>
+                      <td class="pricing-amount">¥5,500〜</td>
+                      <td>長期割引あり / 公式LINE予約</td>
+                    </tr>
+                    <tr>
+                      <td>キッチンカーレンタル</td>
+                      <td class="pricing-amount">応相談</td>
+                      <td class="pricing-amount">¥15,000〜</td>
+                      <td>イベント・開業用途 / 要打合せ</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="pricing-note">※ 表示価格は税込目安です。車種・利用期間・季節により変動するため、詳細は公式LINEまたはお問い合わせフォームよりご確認ください。<br>※ 保険料・燃料代等が別途発生する場合があります。</p>
+                <div class="pricing-cta-row">
+                  <a href="#contact" class="btn-booking">この事業について問い合わせる</a>
+                  <button type="button" class="btn-booking btn-booking-outline" onclick="document.getElementById('booking-modal').classList.add('active'); document.body.style.overflow='hidden';">予約方法を見る</button>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -2592,6 +2940,17 @@
     window.addEventListener('scroll', () => {
       btt.classList.toggle('visible', window.scrollY > 400);
     }, { passive: true });
+
+    // ESC closes booking modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('booking-modal');
+        if (modal && modal.classList.contains('active')) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+    });
 
     // Active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
