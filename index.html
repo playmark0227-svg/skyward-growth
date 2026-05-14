@@ -2480,22 +2480,22 @@
     <div class="stats-inner fade-in stagger-children">
       <div class="stats-grid">
         <div class="stat-item">
-          <span class="stat-number">2つ</span>
+          <span class="stat-number" data-target="2" data-suffix="つ">2つ</span>
           <span class="stat-label">の事業領域</span>
           <span class="stat-desc">モビリティ × クリエイティブ</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">6+</span>
+          <span class="stat-number" data-target="6" data-suffix="+">6+</span>
           <span class="stat-label">SNSプラットフォーム</span>
           <span class="stat-desc">Instagram, X, Threads, TikTok, Facebook</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">7+</span>
+          <span class="stat-number" data-target="7" data-suffix="+">7+</span>
           <span class="stat-label">のサービス</span>
           <span class="stat-desc">カーシェアからドローン撮影まで</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">2社</span>
+          <span class="stat-number" data-target="2" data-suffix="社">2社</span>
           <span class="stat-label">正規代理店</span>
           <span class="stat-desc">ネルプ・グリン認定パートナー</span>
         </div>
@@ -2951,6 +2951,78 @@
         }
       }
     });
+
+    // Stats count-up animation
+    (function() {
+      const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+      if (!statNumbers.length) return;
+
+      let started = false;
+
+      const animateCount = (el) => {
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1600;
+        const startTime = Date.now();
+
+        // Reset to 0 then start
+        el.textContent = '0' + suffix;
+
+        const timer = setInterval(() => {
+          const elapsed = Date.now() - startTime;
+          const t = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+          const current = Math.round(target * eased);
+          el.textContent = current + suffix;
+          if (t >= 1) {
+            el.textContent = target + suffix;
+            clearInterval(timer);
+          }
+        }, 30);
+      };
+
+      const triggerStats = () => {
+        if (started) return;
+        started = true;
+        statNumbers.forEach((el, i) => {
+          setTimeout(() => animateCount(el), i * 150);
+        });
+      };
+
+      const statsSection = document.getElementById('stats');
+      if (!statsSection) return;
+
+      const isInView = () => {
+        const rect = statsSection.getBoundingClientRect();
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        // Trigger when at least ~30% of the section is in viewport
+        return rect.top < vh * 0.7 && rect.bottom > vh * 0.3;
+      };
+
+      // Primary: IntersectionObserver
+      if ('IntersectionObserver' in window) {
+        const statsObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              triggerStats();
+              statsObserver.disconnect();
+            }
+          });
+        }, { threshold: 0.35 });
+        statsObserver.observe(statsSection);
+      }
+
+      // Fallback: scroll listener (also covers initial state)
+      const onScroll = () => {
+        if (isInView()) {
+          triggerStats();
+          window.removeEventListener('scroll', onScroll);
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      // Check on load in case section is already visible
+      if (isInView()) triggerStats();
+    })();
 
     // Active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
