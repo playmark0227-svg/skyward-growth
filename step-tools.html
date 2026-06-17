@@ -154,8 +154,8 @@
     /* ===== STEP TOOLS ===== */
     .step-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
 
     .step-card {
@@ -232,6 +232,56 @@
       color: #64b5f6;
       letter-spacing: 0.5px;
     }
+    .step-tagline {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #64b5f6;
+      margin-bottom: 8px;
+    }
+    .step-sub-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.92);
+      margin: 18px 0 10px;
+    }
+    .step-feat, .step-rec {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .step-feat li, .step-rec li {
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.62);
+      padding-left: 18px;
+      position: relative;
+    }
+    .step-feat li::before {
+      content: '✓';
+      position: absolute; left: 0; top: 0;
+      color: #64b5f6; font-weight: 700;
+    }
+    .step-rec li::before {
+      content: '';
+      position: absolute; left: 3px; top: 7px;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(100,181,246,0.7);
+    }
+    .step-price {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      margin: 18px 0 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .step-price strong { color: #fff; font-weight: 700; }
 
     @media (max-width: 900px) {
       .step-grid { grid-template-columns: repeat(2, 1fr); }
@@ -330,9 +380,26 @@
             <span class="step-badge">Instagram</span>
           </div>
           <div class="step-card-body">
+            <span class="step-tagline">Instagramの成果を加速させる</span>
             <h3>iステップ</h3>
-            <p>Instagram DMを自動化するチャットボット。ストーリーズ・リール・ライブのコメントやメンションに自動でDMを送信。リッチメニュー・抽選・AI文章生成・分析まで対応し、Instagramの成果を加速します。</p>
-            <span class="step-btn">詳細を見る →</span>
+            <p>Meta公式APIを利用した、Instagram専用のDM自動化ツール。ストーリーズ・フィード・リール・インスタライブへのコメントや指定キーワードに反応して自動でDMを送信し、問い合わせ対応や集客・販促を効率化します。ノーコードで設定でき、抽選・アンケート・リッチメニュー・ステップ配信・アカウント分析まで幅広く対応します。</p>
+            <p class="step-sub-label">主な機能</p>
+            <ul class="step-feat">
+              <li>ストーリーズ・フィード・リールへの自動返信</li>
+              <li>インスタライブのコメント・キーワード反応</li>
+              <li>メンション・タグ付けへの自動DM</li>
+              <li>リッチメニュー・ステップ配信・時間指定配信</li>
+              <li>抽選（即時・後日）・アンケート機能</li>
+              <li>アカウント分析・競合分析</li>
+            </ul>
+            <p class="step-sub-label">こんな方におすすめ</p>
+            <ul class="step-rec">
+              <li>DM対応の工数を削減したい企業・店舗</li>
+              <li>Instagram集客・販促に取り組む事業者</li>
+              <li>ノーコードで自動化したいインフルエンサー</li>
+            </ul>
+            <p class="step-price">料金：<strong>月額¥22,000（税込）</strong>／初期費用0円・14日間無料トライアル<br>提供：株式会社ネルプ</p>
+            <span class="step-btn">公式サイトで詳しく見る →</span>
           </div>
         </a>
         <a href="https://xtep.tools/lp?agt-i2doz8e" target="_blank" rel="noopener" class="step-card">
@@ -341,9 +408,26 @@
             <span class="step-badge">X (旧Twitter)</span>
           </div>
           <div class="step-card-body">
+            <span class="step-tagline">Xの成果を加速させる</span>
             <h3>XTEP</h3>
-            <p>X（旧Twitter）のDM・リプライを自動化する公式API連携ツール。自動DM・シークレットリプライ・抽選キャンペーン・予約投稿・Threads同時投稿に対応し、フォロワー獲得と売上拡大を後押しします。</p>
-            <span class="step-btn">詳細を見る →</span>
+            <p>X社公式APIを活用した、X（旧Twitter）のDM・リプライ自動化＆抽選キャンペーンツール。オートDM・オートリプライ・シークレットリプライによる自動応答に加え、即時／後日抽選のキャンペーンを1つのプラットフォームで実施できます。予約投稿やThreads同時投稿にも対応し、約5分・ノーコードで導入できてキャンペーン回数は無制限です。</p>
+            <p class="step-sub-label">主な機能</p>
+            <ul class="step-feat">
+              <li>オートDM（アクションに応じた自動送信）</li>
+              <li>オートリプライ・シークレットリプライ</li>
+              <li>即時抽選（Web遷移型／オートリプライ型）</li>
+              <li>後日抽選キャンペーン</li>
+              <li>予約投稿（事前スケジュール）</li>
+              <li>Threads（スレッズ）同時投稿</li>
+            </ul>
+            <p class="step-sub-label">こんな方におすすめ</p>
+            <ul class="step-rec">
+              <li>Xの問い合わせ・DM対応を自動化したい個人・法人</li>
+              <li>抽選キャンペーンを回数無制限で実施したい運用担当者</li>
+              <li>専門知識なしで短時間に導入したい方</li>
+            </ul>
+            <p class="step-price">料金：<strong>月額¥22,000</strong>／初期費用無料・7日間無料トライアル<br>提供：株式会社ネルプ</p>
+            <span class="step-btn">公式サイトで詳しく見る →</span>
           </div>
         </a>
         <a href="https://threp.jp/lp?agt-t50vwdq" target="_blank" rel="noopener" class="step-card">
@@ -352,9 +436,26 @@
             <span class="step-badge">Threads / X</span>
           </div>
           <div class="step-card-body">
+            <span class="step-tagline">Threadsの自動運用・自動返信なら</span>
             <h3>スレップ</h3>
-            <p>ThreadsとXの自動運用・自動返信ツール。Meta／X公式API採用で、AI投稿生成・予約投稿・オートリプライ・固定返信・インサイト分析・リスト獲得までを自動化します。</p>
-            <span class="step-btn">詳細を見る →</span>
+            <p>Meta／X公式APIを活用した、Threads・X向けの運用自動化ツール。AIによる投稿案生成、予約投稿、オートリプライ（自動返信）、プレゼントキャンペーンの抽選自動化、インサイト分析などを1つのダッシュボードで管理できます。マニュアル・活用事例集に加え、24時間対応のチャットサポートも用意されています。</p>
+            <p class="step-sub-label">主な機能</p>
+            <ul class="step-feat">
+              <li>AI投稿案生成（プロンプト指定対応）</li>
+              <li>Threads・Xへの予約投稿</li>
+              <li>オートリプライ・固定リプライ</li>
+              <li>プレゼントキャンペーンの抽選自動化</li>
+              <li>Xポスト検索（競合・キーワード調査）</li>
+              <li>インサイト分析・自動再投稿</li>
+            </ul>
+            <p class="step-sub-label">こんな方におすすめ</p>
+            <ul class="step-rec">
+              <li>Threads・Xの運用工数を抑えて自動化したい個人・企業</li>
+              <li>AIで投稿作成の負担を減らしたい方</li>
+              <li>自動返信・抽選でリスト獲得につなげたい方</li>
+            </ul>
+            <p class="step-price">料金：<strong>月額¥11,000〜</strong>・7日間無料キャンペーン実施中<br>提供：グリン株式会社（2025年5月リリース）</p>
+            <span class="step-btn">公式サイトで詳しく見る →</span>
           </div>
         </a>
         <a href="https://ttstep.jp/lp?agt-r3wo4gx" target="_blank" rel="noopener" class="step-card">
@@ -363,9 +464,26 @@
             <span class="step-badge">TikTok</span>
           </div>
           <div class="step-card-body">
+            <span class="step-tagline">TikTokの自動返信・抽選キャンペーンなら</span>
             <h3>TTステップ</h3>
-            <p>TikTokのDM・コメント自動返信と抽選キャンペーンを自動化する公式API連携ツール。即時／後日／コメント抽選、流入分析、予約投稿に対応し、TikTok運用の成果を最大化します。</p>
-            <span class="step-btn">詳細を見る →</span>
+            <p>TikTok公式API（バイトダンス社の承認を受けて開発）を活用した、TikTok向けのマーケティング自動化ツール。コメント・DMへの自動返信に加え、これまで難しかった抽選キャンペーン（インスタントウィン）を、応募から抽選・当選通知まで1つのツールで完結できます。DMの流入経路分析や実店舗QR計測、TikTok SHOP連携にも対応し、審査・見積もり不要で最短即日から利用開始できます。</p>
+            <p class="step-sub-label">主な機能</p>
+            <ul class="step-feat">
+              <li>コメント・DMへの自動返信</li>
+              <li>抽選（即時・後日・コメント内／インスタントウィン）</li>
+              <li>応募〜抽選〜当選通知の一括管理</li>
+              <li>DM流入経路トラッキング（店舗QR計測対応）</li>
+              <li>流入経路分析・配信レポート</li>
+              <li>予約投稿・TikTok SHOP連携</li>
+            </ul>
+            <p class="step-sub-label">こんな方におすすめ</p>
+            <ul class="step-rec">
+              <li>TikTokの反応を売上・収益につなげたい企業・店舗</li>
+              <li>抽選キャンペーンを手間なく実施したい運用担当者</li>
+              <li>オフライン施策（チラシ・店内QR）と連携したい実店舗</li>
+            </ul>
+            <p class="step-price">料金：<strong>月額¥11,000（税込）〜</strong>・初期費用無料<br>提供：グリン株式会社（2025年7月リリース）</p>
+            <span class="step-btn">公式サイトで詳しく見る →</span>
           </div>
         </a>
       </div>
