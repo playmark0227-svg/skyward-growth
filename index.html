@@ -58,7 +58,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Shippori+Mincho:wght@500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="images/hero-1.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/hero-1.webp" type="image/webp" fetchpriority="high">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -498,6 +498,7 @@
       opacity: 1;
       transform: scale(1.0);
     }
+    picture { display: contents; }
     .hero-slide img {
       width: 100%;
       height: 100%;
@@ -2506,8 +2507,8 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-slideshow">
-      <div class="hero-slide active"><img src="images/hero-1.jpg" alt="" width="1200" height="670" fetchpriority="high" decoding="async"></div>
-      <div class="hero-slide"><img src="images/hero-2.jpg" alt="" width="1920" height="1047" loading="lazy" decoding="async"></div>
+      <div class="hero-slide active"><picture><source type="image/webp" srcset="images/hero-1.webp"><img src="images/hero-1.jpg" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"></picture></div>
+      <div class="hero-slide"><picture><source type="image/webp" srcset="images/hero-2.webp"><img src="images/hero-2.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async"></picture></div>
     </div>
 
     <div class="hero-overlay"></div>
@@ -2638,7 +2639,7 @@
       <!-- 藤本大地 - 代表 -->
       <div class="member-profile" style="display:flex;align-items:stretch;gap:0;margin-top:72px;border-radius:4px;overflow:hidden;box-shadow:0 24px 60px rgba(20,20,20,0.07);border:1px solid var(--border-soft);">
         <div class="member-photo-area" style="flex:0 0 400px;background:#f0f4f8;display:flex;align-items:stretch;overflow:hidden;">
-          <img src="images/member-fujimoto.jpg" alt="藤本大地 代表取締役" width="900" height="900" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+          <picture><source type="image/webp" srcset="images/member-fujimoto.webp"><img src="images/member-fujimoto.jpg" alt="藤本大地 代表取締役" width="900" height="900" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></picture>
         </div>
         <div style="flex:1;padding:56px 60px;background:#fff;display:flex;flex-direction:column;justify-content:center;">
           <p style="font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:500;letter-spacing:0.32em;color:var(--green-primary);margin-bottom:18px;text-transform:uppercase;">— Daichi Fujimoto</p>
@@ -2652,7 +2653,7 @@
       <!-- 久保歩夢 - 取締役 -->
       <div class="member-profile" style="display:flex;align-items:stretch;gap:0;margin-top:32px;border-radius:4px;overflow:hidden;box-shadow:0 24px 60px rgba(20,20,20,0.07);flex-direction:row-reverse;border:1px solid var(--border-soft);">
         <div class="member-photo-area" style="flex:0 0 400px;background:linear-gradient(160deg,#e3f2fd,#bbdefb);display:flex;align-items:center;justify-content:center;padding:0;overflow:hidden;" id="kubo-photo-area">
-          <img src="images/member-kubo.jpg" alt="久保歩夢 ディレクター" width="900" height="900" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+          <picture><source type="image/webp" srcset="images/member-kubo.webp"><img src="images/member-kubo.jpg" alt="久保歩夢 ディレクター" width="900" height="900" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></picture>
         </div>
         <div style="flex:1;padding:56px 60px;background:#fff;display:flex;flex-direction:column;justify-content:center;">
           <p style="font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:500;letter-spacing:0.32em;color:var(--blue-primary);margin-bottom:18px;text-transform:uppercase;">— Ayumu Kubo</p>
@@ -2814,7 +2815,7 @@
                   <a href="https://istep.click/lp?agt-xl5t7df" target="_blank" rel="noopener" class="step-tool-card">
                     <span class="step-tool-platform">Instagram</span>
                     <div class="step-tool-head">
-                      <img src="images/step-i.png" alt="iステップ" loading="lazy" decoding="async">
+                      <picture><source type="image/webp" srcset="images/step-i.webp"><img src="images/step-i.png" alt="iステップ" loading="lazy" decoding="async"></picture>
                       <span class="step-tool-name">iステップ</span>
                     </div>
                     <p class="step-tool-desc">Instagramの自動運用ツール。フィード投稿・リール・ストーリーズ・ライブへのコメントに対して自動DM送信が可能。Meta公式APIを使用した安全なシステムで、キャンペーン施策やクーポン配布を自動化し、売上最大化を実現します。</p>
@@ -2828,7 +2829,7 @@
                   <a href="https://xtep.tools/lp?agt-i2doz8e" target="_blank" rel="noopener" class="step-tool-card">
                     <span class="step-tool-platform">X(旧Twitter)</span>
                     <div class="step-tool-head">
-                      <img src="images/step-xtep.png" alt="XTEP" loading="lazy" decoding="async">
+                      <picture><source type="image/webp" srcset="images/step-xtep.webp"><img src="images/step-xtep.png" alt="XTEP" loading="lazy" decoding="async"></picture>
                       <span class="step-tool-name">XTEP</span>
                     </div>
                     <p class="step-tool-desc">X（旧Twitter）の運用を効率化・自動化する機能拡張ツール。自動返信・抽選キャンペーン・予約投稿機能を備え、X公式APIを使用してフォロワー獲得と売上拡大をサポートします。</p>
@@ -2842,7 +2843,7 @@
                   <a href="https://threp.jp/lp?agt-t50vwdq" target="_blank" rel="noopener" class="step-tool-card">
                     <span class="step-tool-platform">Threads / X</span>
                     <div class="step-tool-head">
-                      <img src="images/step-srep.png" alt="スレップ" loading="lazy" decoding="async">
+                      <picture><source type="image/webp" srcset="images/step-srep.webp"><img src="images/step-srep.png" alt="スレップ" loading="lazy" decoding="async"></picture>
                       <span class="step-tool-name">スレップ</span>
                     </div>
                     <p class="step-tool-desc">ThreadsとXの投稿・返信・分析を自動化できるSNS運用支援ツール。AIによる高品質な投稿生成や自動返信、リスト獲得機能で、日々のSNS運用を効率化します。</p>
@@ -2856,7 +2857,7 @@
                   <a href="https://ttstep.jp/lp?agt-r3wo4gx" target="_blank" rel="noopener" class="step-tool-card">
                     <span class="step-tool-platform">TikTok</span>
                     <div class="step-tool-head">
-                      <img src="images/step-tt.png" alt="TTステップ" loading="lazy" decoding="async">
+                      <picture><source type="image/webp" srcset="images/step-tt.webp"><img src="images/step-tt.png" alt="TTステップ" loading="lazy" decoding="async"></picture>
                       <span class="step-tool-name">TTステップ</span>
                     </div>
                     <p class="step-tool-desc">TikTokのDM返信・抽選キャンペーンを自動化できる支援ツール。公式APIを使用し、TikTok運用の成果最大化をサポートします。</p>
