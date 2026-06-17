@@ -297,9 +297,14 @@
     }
 
     .overview-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 44px rgba(53,93,128,0.14);
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 26px 56px rgba(53,93,128,0.22);
       border-color: var(--green-primary);
+      z-index: 1;
+    }
+    .overview-card:active {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 14px 32px rgba(53,93,128,0.18);
     }
 
     .overview-num {
@@ -2602,16 +2607,13 @@
         <a class="overview-card" href="#business" data-tab-target="0">
           <div class="overview-num">01</div>
           <h3>モビリティ事業</h3>
-          <p>学生やビジネスの移動をもっと自由に。カーシェア、レンタカー、キッチンカーレンタルで、あらゆるモビリティニーズに応えます。</p>
+          <p>学生やビジネスの移動をもっと自由に。<br>カーシェア・レンタカー・キッチンカーレンタルで、あらゆるモビリティニーズに応えます。</p>
         </a>
         <a class="overview-card" href="#business" data-tab-target="1">
           <div class="overview-num">02</div>
           <h3>クリエイティブ事業</h3>
           <p>SNS運用からWEB制作、ドローン撮影までワンストップでサポート。Instagram・X・Threads・TikTok・Facebookの主要SNSに対応。</p>
         </a>
-      </div>
-      <div style="margin-top:64px;">
-        <a href="#business" class="btn-section-more">事業詳細を見る</a>
       </div>
     </div>
   </section>
