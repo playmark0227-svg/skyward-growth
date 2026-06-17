@@ -274,9 +274,9 @@
       margin-top: 64px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border-soft);
-      border: 1px solid var(--border-soft);
+      gap: 24px;
+      background: transparent;
+      border: none;
     }
     .overview-grid-2 {
       grid-template-columns: repeat(2, 1fr);
@@ -284,12 +284,12 @@
 
     .overview-card {
       background: #fff;
-      border: none;
-      border-radius: 0;
-      padding: 56px 36px 48px;
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      padding: 48px 40px 44px;
       text-align: left;
       position: relative;
-      transition: background 0.4s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       text-decoration: none;
       color: inherit;
       display: block;
@@ -297,23 +297,31 @@
     }
 
     .overview-card:hover {
-      transform: none;
-      box-shadow: none;
-      background: var(--bg-light);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 44px rgba(53,93,128,0.14);
+      border-color: var(--green-primary);
     }
 
     .overview-num {
-      position: static;
-      background: transparent;
-      color: var(--green-primary);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
-      font-weight: 500;
-      padding: 0;
-      border-radius: 0;
-      letter-spacing: 0.3em;
-      display: block;
-      margin-bottom: 24px;
+      color: var(--blue-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1;
+      display: inline-block;
+      position: relative;
+      padding-bottom: 14px;
+      margin-bottom: 22px;
+    }
+    .overview-num::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 30px;
+      height: 2px;
+      background: var(--green-primary);
     }
 
     .overview-icon {
@@ -2108,7 +2116,7 @@
 
       /* Overview cards */
       .overview-card { padding: 40px 28px 36px; }
-      .overview-num { font-size: 12px; margin-bottom: 18px; }
+      .overview-num { font-size: 28px; margin-bottom: 18px; }
       .overview-icon { width: 42px; height: 42px; margin-bottom: 16px; }
       .overview-icon svg { width: 20px; height: 20px; }
       .overview-card h3 { font-size: 18px; margin-bottom: 10px; }
@@ -2562,7 +2570,7 @@
     <div class="section-inner">
       <p class="section-title-en">What We Do</p>
       <h2 class="section-title">Skyward Growthとは</h2>
-      <p class="section-desc"><strong style="color:var(--green-primary);font-weight:700;">モビリティ事業</strong>と<strong style="color:var(--green-primary);font-weight:700;">クリエイティブ事業</strong>の二軸で、あなたのビジネスの成長を加速させます。「丸投げOK」のワンストップサービスで、すべての人と企業の挑戦に伴走します。</p>
+      <p class="section-desc"><strong style="color:var(--green-primary);font-weight:700;">モビリティ事業</strong>と<strong style="color:var(--green-primary);font-weight:700;">クリエイティブ事業</strong>の二軸で、あなたのビジネスの成長を加速させます。<strong style="color:var(--green-primary);font-weight:700;">寄り添った</strong>ワンストップサービスで、すべての人と企業の挑戦に伴走します。</p>
       <div class="overview-grid overview-grid-2 fade-in stagger-children">
         <a class="overview-card" href="#business" data-tab-target="0">
           <div class="overview-num">01</div>
