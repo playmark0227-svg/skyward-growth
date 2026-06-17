@@ -1357,13 +1357,24 @@
       transform: scaleX(1);
     }
     .biz-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 15px;
-      font-weight: 500;
-      letter-spacing: 0.28em;
-      color: var(--green-primary);
-      display: block;
-      margin-bottom: 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--blue-primary);
+      display: inline-block;
+      position: relative;
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+    .biz-num::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 26px;
+      height: 2px;
+      background: var(--green-primary);
     }
     .business-service h4 {
       font-family: 'Shippori Mincho', serif;
@@ -2582,7 +2593,7 @@
     <div class="section-inner">
       <p class="section-title-en">What We Do</p>
       <h2 class="section-title">Skyward Growthとは</h2>
-      <p class="section-desc"><strong style="color:var(--green-primary);font-weight:700;">モビリティ事業</strong>と<strong style="color:var(--green-primary);font-weight:700;">クリエイティブ事業</strong>の二軸で、あなたのビジネスの成長を加速させます。<strong style="color:var(--green-primary);font-weight:700;">寄り添った</strong>ワンストップサービスで、すべての人と企業の挑戦に伴走します。</p>
+      <p class="section-desc"><strong style="color:var(--green-primary);font-weight:700;">モビリティ事業</strong>と<strong style="color:var(--green-primary);font-weight:700;">クリエイティブ事業</strong>の二軸で、あなたのビジネスの成長を加速させます。<br><strong style="color:var(--green-primary);font-weight:700;">寄り添った</strong>ワンストップサービスで、すべての人と企業の挑戦に伴走します。</p>
       <div class="overview-grid overview-grid-2 fade-in stagger-children">
         <a class="overview-card" href="#business" data-tab-target="0">
           <div class="overview-num">01</div>
