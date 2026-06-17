@@ -10,8 +10,8 @@
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#355d80">
   <link rel="canonical" href="https://skyward-growth.com/">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="icon" type="image/png" href="images/logo-icon.png">
+  <link rel="apple-touch-icon" href="images/logo-icon.png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -146,6 +146,15 @@
       color: var(--text-dark);
       letter-spacing: 0.08em;
       transition: color 0.4s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+    }
+    .logo .logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
     }
     .logo .logo-mark {
       display: inline-block;
@@ -2293,7 +2302,9 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 28px; font-weight: 500; color: var(--text-dark); letter-spacing: 0.18em;
       margin-bottom: 28px; opacity: 0; animation: loaderFadeIn 0.5s 0.1s forwards;
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
     }
+    .loader-logo-img { height: 60px; width: auto; display: block; }
     .loader-bar-wrap {
       width: 200px; height: 1px; background: rgba(20,20,20,0.08); border-radius: 0; overflow: hidden;
       opacity: 0; animation: loaderFadeIn 0.4s 0.3s forwards;
@@ -2494,7 +2505,7 @@
   <!-- LOADING SCREEN -->
   <div id="page-loader">
     <div class="loader-inner">
-      <div class="loader-logo">Skyward Growth</div>
+      <div class="loader-logo"><img class="loader-logo-img" src="images/logo.png" alt="" width="60" height="60">Skyward Growth</div>
       <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
     </div>
   </div>
@@ -2543,7 +2554,7 @@
 
   <!-- HEADER -->
   <header>
-    <a href="#" class="logo" style="text-decoration:none;">Skyward Growth</a>
+    <a href="#" class="logo" style="text-decoration:none;"><picture><source type="image/webp" srcset="images/logo.webp"><img class="logo-img" src="images/logo.png" alt="Skyward Growth" width="38" height="38"></picture>Skyward Growth</a>
     <button class="hamburger" onclick="this.classList.toggle('active');document.querySelector('nav').classList.toggle('active')" aria-label="メニュー">
       <span></span><span></span><span></span>
     </button>
