@@ -192,7 +192,7 @@
     }
 
     .btn-contact {
-      background: #4aa3d9;
+      background: var(--green-primary);
       color: #fff !important;
       padding: 12px 28px;
       border-radius: 999px;
@@ -676,7 +676,7 @@
 
     /* ===== STATS BAND ===== */
     #stats {
-      background: linear-gradient(135deg, #1e54d6 0%, #2563eb 100%);
+      background: linear-gradient(135deg, var(--blue-primary) 0%, var(--green-deep) 100%);
       padding: 88px 40px;
       color: #fff;
     }
@@ -1322,7 +1322,7 @@
       padding: 36px 32px;
       background: #fff;
       border: 1px solid var(--border-soft);
-      border-radius: 4px;
+      border-radius: 14px;
       position: relative;
       overflow: hidden;
       opacity: 0;
@@ -1416,11 +1416,11 @@
       border-radius: 4px;
     }
     .step-tools-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      color: var(--blue-primary);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      color: var(--green-primary);
       text-transform: uppercase;
       margin-bottom: 8px;
       display: block;
@@ -1668,7 +1668,7 @@
       transition: transform 0.3s ease;
     }
     .btn-booking:hover {
-      background: #1f88c3;
+      background: #3a8db8;
       transform: translateY(-2px);
       box-shadow: 0 12px 28px rgba(74,163,217,0.25);
     }
@@ -1699,11 +1699,11 @@
       margin-bottom: 24px;
     }
     .pricing-block-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      color: var(--blue-primary);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      color: var(--green-primary);
       text-transform: uppercase;
       display: block;
       margin-bottom: 8px;
@@ -2361,7 +2361,7 @@
     }
     .works-display-card {
       background: #fff;
-      border-radius: 4px;
+      border-radius: 14px;
       overflow: hidden;
       transition: transform 0.4s cubic-bezier(.2,.7,.2,1), box-shadow 0.4s ease;
       box-shadow: 0 1px 4px rgba(20,20,20,0.04);
@@ -2473,6 +2473,19 @@
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+    /* ===== Accessibility: keyboard focus & reduced motion ===== */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--blue-primary);
+      outline-offset: 3px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto !important; }
     }
   </style>
 </head>
