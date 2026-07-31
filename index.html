@@ -1779,7 +1779,141 @@
       flex-wrap: wrap;
     }
 
+    /* ===== 公式LINE CTA ===== */
+    .btn-booking.btn-line {
+      background: #06C755;
+      color: #fff;
+    }
+    .btn-booking.btn-line:hover {
+      background: #05a948;
+      box-shadow: 0 12px 28px rgba(6,199,85,0.30);
+    }
+    .btn-booking.btn-line svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+    .line-inline {
+      color: #06a94a;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.25s ease;
+    }
+    .line-inline:hover { color: #04853a; }
+
+    /* ===== 車両情報 ===== */
+    .vehicle-block {
+      margin-top: 28px;
+      padding: 36px 32px 32px;
+      background: #fff;
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+    }
+    .vehicle-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(228px, 1fr));
+      gap: 18px;
+    }
+    .vehicle-card {
+      display: flex;
+      flex-direction: column;
+      background: #fafbfc;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .vehicle-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(53,93,128,0.13);
+      border-color: var(--green-primary);
+    }
+    .vehicle-media {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(140deg, var(--green-soft) 0%, #ffffff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue-primary);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .vehicle-media svg { width: 64%; height: auto; }
+    .vehicle-media img { width: 100%; height: 100%; object-fit: cover; }
+    .vehicle-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: var(--blue-primary);
+      color: #fff;
+    }
+    .vehicle-tag.is-share { background: var(--green-primary); }
+    .vehicle-tag.is-kitchen { background: var(--accent-gold); }
+    .vehicle-body {
+      padding: 15px 17px 17px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      flex: 1;
+    }
+    .vehicle-name {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-dark);
+      letter-spacing: 0.03em;
+    }
+    .vehicle-spec {
+      font-size: 11.5px;
+      color: var(--text-gray);
+      line-height: 1.75;
+    }
+    .vehicle-price {
+      list-style: none;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border-mid);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .vehicle-price li {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 11.5px;
+      color: var(--text-gray);
+      letter-spacing: 0.02em;
+    }
+    .vehicle-price b {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--blue-primary);
+      letter-spacing: 0.01em;
+    }
+    .vehicle-note {
+      font-size: 10.5px;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
     @media (max-width: 700px) {
+      .vehicle-block { padding: 24px 18px 22px; }
+      .vehicle-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .vehicle-body { padding: 12px 13px 14px; gap: 6px; }
+      .vehicle-name { font-size: 13.5px; }
+      .vehicle-spec { font-size: 10.5px; }
+      .vehicle-price li { font-size: 10.5px; }
+      .vehicle-price b { font-size: 13.5px; }
       .pricing-block { padding: 24px 18px 22px; }
       .pricing-block-title { font-size: 18px; }
       .pricing-table { font-size: 12.5px; }
@@ -2532,7 +2666,7 @@
       <div class="booking-flow-card">
         <h4><span class="booking-flow-badge">02</span>レンタカー</h4>
         <ol class="booking-flow-steps">
-          <li>公式LINEを友だち追加</li>
+          <li><a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="line-inline">公式LINEを友だち追加</a></li>
           <li>希望日時・車種・利用目的をトークで送信</li>
           <li>当社より見積・予約確認の返信 → 当日受け渡し</li>
         </ol>
@@ -2541,7 +2675,7 @@
       <div class="booking-flow-card">
         <h4><span class="booking-flow-badge">03</span>キッチンカーレンタル</h4>
         <ol class="booking-flow-steps">
-          <li>お問い合わせフォーム or 公式LINEからご連絡</li>
+          <li>お問い合わせフォーム or <a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="line-inline">公式LINE</a>からご連絡</li>
           <li>用途・日程・必要設備をヒアリング</li>
           <li>お見積もり・契約 → 当日納車・運営サポート</li>
         </ol>
@@ -2800,7 +2934,7 @@
                   <tbody>
                     <tr>
                       <td>学生向けカーシェア</td>
-                      <td class="pricing-amount">¥216 / 15分<br>¥816 / 60分</td>
+                      <td class="pricing-amount">¥216 / 15分<br>¥864 / 60分</td>
                       <td class="pricing-amount">¥6,600〜<span style="display:block;font-size:11px;font-weight:500;color:var(--text-soft);letter-spacing:0.02em;margin-top:4px;">+距離料金 ※1kmあたり¥16.5</span></td>
                       <td>Patto会員登録・15分から利用可能</td>
                     </tr>
@@ -2808,13 +2942,13 @@
                       <td>レンタカー（コンパクト・軽トラ）</td>
                       <td class="pricing-amount">¥1,100 / 1時間</td>
                       <td class="pricing-amount">¥7,700</td>
-                      <td>学生・法人割引あり / 公式LINE予約</td>
+                      <td>学生・法人割引あり / <a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="line-inline">公式LINE予約</a></td>
                     </tr>
                     <tr>
                       <td>レンタカー（SUV・ミニバン）</td>
                       <td class="pricing-amount">¥2,200 / 1時間</td>
                       <td class="pricing-amount">¥17,000</td>
-                      <td>学生・法人割引あり / 公式LINE予約</td>
+                      <td>学生・法人割引あり / <a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="line-inline">公式LINE予約</a></td>
                     </tr>
                     <tr>
                       <td>キッチンカーレンタル</td>
@@ -2824,11 +2958,153 @@
                     </tr>
                   </tbody>
                 </table>
-                <p class="pricing-note">※ 表示価格は税込目安です。車種・利用期間・季節により変動するため、詳細は公式LINEまたはお問い合わせフォームよりご確認ください。<br>※ 保険料・燃料代等が別途発生する場合があります。</p>
+                <p class="pricing-note">※ 表示価格は税込目安です。車種・利用期間・季節により変動するため、詳細は<a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="line-inline">公式LINE</a>またはお問い合わせフォームよりご確認ください。<br>※ 保険料・燃料代等が別途発生する場合があります。</p>
                 <div class="pricing-cta-row">
-                  <a href="skyward-pricelist.pdf" target="_blank" rel="noopener" class="btn-booking">詳細な料金はこちら</a>
+                  <a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="btn-booking btn-line">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 5.7 2 10.25c0 4.08 3.55 7.5 8.35 8.14.32.07.77.21.88.49.1.25.07.64.03.89l-.14.85c-.04.25-.2.98.86.53 1.06-.44 5.71-3.36 7.79-5.76C21.2 13.78 22 12.11 22 10.25 22 5.7 17.52 2 12 2ZM8.28 12.85H6.29a.53.53 0 0 1-.53-.53V8.34c0-.29.24-.53.53-.53s.53.24.53.53v3.45h1.46c.29 0 .53.24.53.53s-.24.53-.53.53Zm2.08-.53c0 .29-.24.53-.53.53a.53.53 0 0 1-.53-.53V8.34c0-.29.24-.53.53-.53s.53.24.53.53v3.98Zm4.79 0c0 .23-.15.43-.36.5a.55.55 0 0 1-.17.03.53.53 0 0 1-.43-.21l-2.04-2.77v2.45c0 .29-.24.53-.53.53a.53.53 0 0 1-.53-.53V8.34c0-.23.15-.43.36-.5a.53.53 0 0 1 .6.18l2.04 2.78V8.34c0-.29.24-.53.53-.53s.53.24.53.53v3.98Zm3.22-2.52c.29 0 .53.24.53.53s-.24.53-.53.53h-1.46v.93h1.46c.29 0 .53.24.53.53s-.24.53-.53.53h-1.99a.53.53 0 0 1-.53-.53V8.34c0-.29.24-.53.53-.53h1.99c.29 0 .53.24.53.53s-.24.53-.53.53h-1.46v.93h1.46Z"/></svg>
+                    公式LINEで予約・相談
+                  </a>
+                  <a href="skyward-pricelist.pdf" target="_blank" rel="noopener" class="btn-booking btn-booking-outline">詳細な料金はこちら</a>
                   <button type="button" class="btn-booking btn-booking-outline" onclick="document.getElementById('booking-modal').classList.add('active'); document.body.style.overflow='hidden';">予約方法を見る</button>
                 </div>
+              </div>
+
+              <!-- ===== 車両情報 =====
+                   実車の写真が用意できたら、各 .vehicle-media 内の <svg>…</svg> を
+                   <img src="images/car-xxx.jpg" alt="車種名"> に差し替えてください（CSS対応済み）。
+                   料金は skyward-pricelist.pdf（2026年6月改定版）に準拠。 -->
+              <div class="vehicle-block">
+                <div class="pricing-block-head">
+                  <div>
+                    <span class="pricing-block-label">— Vehicles</span>
+                    <h4 class="pricing-block-title">車両情報</h4>
+                  </div>
+                </div>
+                <div class="vehicle-grid">
+
+                  <article class="vehicle-card">
+                    <div class="vehicle-media">
+                      <span class="vehicle-tag is-share">カーシェア</span>
+                      <svg viewBox="0 0 64 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M8 25v-4l3-1 4-7h22l6 7 4 1v4"/><path d="M8 25h39"/>
+                        <path d="M20 13v7M31 13v7"/>
+                        <circle cx="18" cy="25" r="4"/><circle cx="38" cy="25" r="4"/>
+                        <circle cx="52" cy="12" r="8"/><path d="M52 8v4l3 2"/>
+                      </svg>
+                    </div>
+                    <div class="vehicle-body">
+                      <h5 class="vehicle-name">軽・コンパクトクラス</h5>
+                      <p class="vehicle-spec">乗車定員 4〜5名（目安）／ AT車<br>15分単位・24時間いつでも貸出</p>
+                      <ul class="vehicle-price">
+                        <li><span>15分</span><b>¥216</b></li>
+                        <li><span>60分</span><b>¥864</b></li>
+                        <li><span>1日</span><b>¥6,600〜</b></li>
+                      </ul>
+                      <p class="vehicle-note">＋距離料金 ¥16.5/km ／ Pattoアプリで予約・学生証で会員登録（無料）</p>
+                    </div>
+                  </article>
+
+                  <article class="vehicle-card">
+                    <div class="vehicle-media">
+                      <span class="vehicle-tag">レンタカー</span>
+                      <svg viewBox="0 0 64 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 24v-5l4-1 5-8h26l7 8 8 1v5"/><path d="M5 24h54"/>
+                        <path d="M20 10v8M34 10v8"/>
+                        <circle cx="18" cy="24" r="4.5"/><circle cx="46" cy="24" r="4.5"/>
+                      </svg>
+                    </div>
+                    <div class="vehicle-body">
+                      <h5 class="vehicle-name">コンパクトカー</h5>
+                      <p class="vehicle-spec">乗車定員 5名（目安）／ AT車<br>通勤・買い物・街乗りに</p>
+                      <ul class="vehicle-price">
+                        <li><span>1時間</span><b>¥1,100</b></li>
+                        <li><span>24時間</span><b>¥7,700</b></li>
+                      </ul>
+                      <p class="vehicle-note">学生・法人・二地域居住者は ¥1,100引き（24時間以上のご利用）</p>
+                    </div>
+                  </article>
+
+                  <article class="vehicle-card">
+                    <div class="vehicle-media">
+                      <span class="vehicle-tag">レンタカー</span>
+                      <svg viewBox="0 0 64 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 24V11h15l4 6"/><path d="M24 24V13h35v11"/><path d="M5 24h54"/>
+                        <path d="M8 13h9v5H8z"/>
+                        <circle cx="14" cy="24" r="4.5"/><circle cx="47" cy="24" r="4.5"/>
+                      </svg>
+                    </div>
+                    <div class="vehicle-body">
+                      <h5 class="vehicle-name">軽トラック</h5>
+                      <p class="vehicle-spec">乗車定員 2名 ／ 荷台付き<br>引越し・資材運搬・農作業に</p>
+                      <ul class="vehicle-price">
+                        <li><span>1時間</span><b>¥1,100</b></li>
+                        <li><span>24時間</span><b>¥7,700</b></li>
+                      </ul>
+                      <p class="vehicle-note">学生・法人・二地域居住者は ¥1,100引き（24時間以上のご利用）</p>
+                    </div>
+                  </article>
+
+                  <article class="vehicle-card">
+                    <div class="vehicle-media">
+                      <span class="vehicle-tag">レンタカー</span>
+                      <svg viewBox="0 0 64 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 24v-7l3-1 4-8h34l5 8 8 1v7"/><path d="M5 24h54"/>
+                        <path d="M20 8v9M36 8v9"/>
+                        <circle cx="18" cy="24" r="5"/><circle cx="46" cy="24" r="5"/>
+                      </svg>
+                    </div>
+                    <div class="vehicle-body">
+                      <h5 class="vehicle-name">SUV</h5>
+                      <p class="vehicle-spec">乗車定員 5名（目安）／ 積載力・走破性<br>アウトドア・冬道の長距離移動に</p>
+                      <ul class="vehicle-price">
+                        <li><span>1時間</span><b>¥2,200</b></li>
+                        <li><span>24時間</span><b>¥17,000</b></li>
+                      </ul>
+                      <p class="vehicle-note">学生・法人・二地域居住者は ¥1,100引き（24時間以上のご利用）</p>
+                    </div>
+                  </article>
+
+                  <article class="vehicle-card">
+                    <div class="vehicle-media">
+                      <span class="vehicle-tag">レンタカー</span>
+                      <svg viewBox="0 0 64 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 24V12a3 3 0 0 1 3-3h36a4 4 0 0 1 3 1.5L54 18l3 1v5"/><path d="M5 24h54"/>
+                        <path d="M18 9v9M32 9v9M44 11v7"/>
+                        <circle cx="17" cy="24" r="4.5"/><circle cx="47" cy="24" r="4.5"/>
+                      </svg>
+                    </div>
+                    <div class="vehicle-body">
+                      <h5 class="vehicle-name">ミニバン</h5>
+                      <p class="vehicle-spec">乗車定員 7〜8名（目安）／ 3列シート<br>家族旅行・送迎・グループ移動に</p>
+                      <ul class="vehicle-price">
+                        <li><span>1時間</span><b>¥2,200</b></li>
+                        <li><span>24時間</span><b>¥17,000</b></li>
+                      </ul>
+                      <p class="vehicle-note">学生・法人・二地域居住者は ¥1,100引き（24時間以上のご利用）</p>
+                    </div>
+                  </article>
+
+                  <article class="vehicle-card">
+                    <div class="vehicle-media">
+                      <span class="vehicle-tag is-kitchen">キッチンカー</span>
+                      <svg viewBox="0 0 64 34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M7 24V9h32v15"/><path d="M39 24V14h8l6 6v4"/><path d="M6 24h53"/>
+                        <path d="M13 14h20v6H13z"/><path d="M11 11h24"/>
+                        <circle cx="17" cy="24" r="4.5"/><circle cx="47" cy="24" r="4.5"/>
+                      </svg>
+                    </div>
+                    <div class="vehicle-body">
+                      <h5 class="vehicle-name">キッチンカー</h5>
+                      <p class="vehicle-spec">調理設備搭載 ／ 電源・給排水対応<br>イベント出店・開業テスト・移動販売に</p>
+                      <ul class="vehicle-price">
+                        <li><span>24時間</span><b>¥22,000</b></li>
+                      </ul>
+                      <p class="vehicle-note">要打合せ ／ 守成クラブ会員は ¥3,000引き</p>
+                    </div>
+                  </article>
+
+                </div>
+                <p class="pricing-note">※ 乗車定員・装備は車両クラスの目安です。実車の車種・年式・装備の詳細は<a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="line-inline">公式LINE</a>にてお気軽にお問い合わせください。<br>※ 免責補償制度（CDW）¥1,100〜、ポータブル電源・カセットコンロ・炊飯器などの装備オプションもご用意しています。詳細は<a href="skyward-pricelist.pdf" target="_blank" rel="noopener">総合料金表（PDF）</a>をご覧ください。</p>
               </div>
             </div>
           </div>
