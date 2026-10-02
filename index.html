@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>株式会社Skyward Growth | ビジネスを、次のステージへ</title>
-  <meta name="description" content="株式会社Skyward Growthは、モビリティとクリエイティブの2つの事業で、すべての人と企業の成長を支援します。学生向けカーシェア「Patto」やレンタカー、SNS総合支援（Instagram・X・Threads・TikTok・Facebook）まで、ビジネスを次のステージへ。">
+  <meta name="description" content="株式会社Skyward Growthは、モビリティ・家電・クリエイティブの3つの事業で、すべての人と企業の成長を支援します。学生向けカーシェア「Patto」やレンタカー、SNS総合支援（Instagram・X・Threads・TikTok・Facebook）まで、ビジネスを次のステージへ。">
   <meta name="keywords" content="Skyward Growth,スカイワードグロース,モビリティ,カーシェア,Patto,レンタカー,キッチンカー,SNS運用,SNS総合支援,クリエイティブ,北見">
   <meta name="author" content="株式会社Skyward Growth">
   <meta name="robots" content="index, follow">
@@ -1118,7 +1118,7 @@
     }
     .business-tab-headers {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 0;
       border-top: 1px solid var(--border-soft);
       border-bottom: 1px solid var(--border-soft);
@@ -1129,9 +1129,13 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      left: 50%;
-      width: 1px;
-      background: var(--border-soft);
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      /* 3つのタブの区切り線 (1/3・2/3 の位置) */
+      background: linear-gradient(to right,
+        transparent calc(33.333% - 0.5px), var(--border-soft) calc(33.333% - 0.5px), var(--border-soft) calc(33.333% + 0.5px), transparent calc(33.333% + 0.5px),
+        transparent calc(66.666% - 0.5px), var(--border-soft) calc(66.666% - 0.5px), var(--border-soft) calc(66.666% + 0.5px), transparent calc(66.666% + 0.5px));
       z-index: 1;
     }
     /* Active indicator bar */
@@ -1140,7 +1144,7 @@
       position: absolute;
       bottom: -1px;
       left: 0;
-      width: 50%;
+      width: 33.333%;
       height: 2px;
       background: var(--green-primary);
       transition: transform 0.5s cubic-bezier(.4,0,.2,1);
@@ -1148,6 +1152,9 @@
     }
     .business-tabs[data-active="1"] .business-tab-headers::after {
       transform: translateX(100%);
+    }
+    .business-tabs[data-active="2"] .business-tab-headers::after {
+      transform: translateX(200%);
     }
 
     .business-tab-header {
@@ -1590,7 +1597,8 @@
         top: 0;
         height: 2px;
       }
-      .business-tabs[data-active="1"] .business-tab-headers::after {
+      .business-tabs[data-active="1"] .business-tab-headers::after,
+      .business-tabs[data-active="2"] .business-tab-headers::after {
         transform: translateY(100%) translateX(0);
       }
       .business-tab-header {
@@ -2664,11 +2672,11 @@
       </div>
 
       <div class="booking-flow-card">
-        <h4><span class="booking-flow-badge">02</span>レンタカー</h4>
+        <h4><span class="booking-flow-badge">02</span>レンタカー・家電レンタル</h4>
         <ol class="booking-flow-steps">
-          <li><a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="line-inline">公式LINEを友だち追加</a></li>
-          <li>希望日時・車種・利用目的をトークで送信</li>
-          <li>当社より見積・予約確認の返信 → 当日受け渡し</li>
+          <li><a href="https://playmark0227-svg.github.io/sky-rent/" target="_blank" rel="noopener" class="line-inline">予約サイト</a>で日時を選んで空き状況・料金を確認</li>
+          <li>車両 (または家電) とオプションを選んでWebで予約 → 確認メールが届きます</li>
+          <li>当日、北見本店でお受け取り・お支払い (<a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="line-inline">公式LINE</a>でのご相談も可)</li>
         </ol>
       </div>
 
@@ -2731,7 +2739,7 @@
     <div class="stats-inner fade-in stagger-children">
       <div class="stats-grid">
         <div class="stat-item">
-          <span class="stat-number" data-target="2" data-suffix="つ">2つ</span>
+          <span class="stat-number" data-target="3" data-suffix="つ">3つ</span>
           <span class="stat-label">の事業領域</span>
           <span class="stat-desc">モビリティ × クリエイティブ</span>
         </div>
@@ -2743,7 +2751,7 @@
         <div class="stat-item">
           <span class="stat-number" data-target="7" data-suffix="+">7+</span>
           <span class="stat-label">のサービス</span>
-          <span class="stat-desc">モビリティ事業からクリエイティブ事業まで</span>
+          <span class="stat-desc">モビリティ事業・家電事業・クリエイティブ事業</span>
         </div>
         <div class="stat-item">
           <span class="stat-number" data-target="2" data-suffix="社">2社</span>
@@ -2860,7 +2868,7 @@
     <div class="section-inner fade-in">
       <p class="section-title-en">Business</p>
       <h2 class="section-title">事業紹介</h2>
-      <p class="section-desc">大きく分けて2つの事業領域で、あなたのビジネスを多角的に加速させます。</p>
+      <p class="section-desc">大きく分けて3つの事業領域で、あなたのビジネスを多角的に加速させます。</p>
 
       <div class="business-tabs" id="business-tabs">
 
@@ -2876,6 +2884,14 @@
           </button>
           <button class="business-tab-header" data-tab="1" type="button">
             <span class="business-tab-num">02</span>
+            <span class="business-tab-lines">
+              <span class="business-tab-en">— Appliance</span>
+              <span class="business-tab-title">家電事業</span>
+              <span class="business-tab-tag">必要なときに、必要な家電を</span>
+            </span>
+          </button>
+          <button class="business-tab-header" data-tab="2" type="button">
+            <span class="business-tab-num">03</span>
             <span class="business-tab-lines">
               <span class="business-tab-en">— Creative</span>
               <span class="business-tab-title">クリエイティブ事業</span>
@@ -2903,10 +2919,10 @@
                   <h4>学生向けカーシェア</h4>
                   <p>Pattoと連携した学生向けカーシェアリングサービス。手軽に、安心してご利用いただけます。</p>
                 </a>
-                <a class="business-service" href="#contact" style="--i:1">
+                <a class="business-service" href="https://playmark0227-svg.github.io/sky-rent/" target="_blank" rel="noopener" style="--i:1">
                   <span class="biz-num">02</span>
                   <h4>レンタカー</h4>
-                  <p>学生・企業向けのレンタカーサービス。用途に合わせた車両をご用意。公式LINEからご予約ください。</p>
+                  <p>学生・企業向けのレンタカーサービス。用途に合わせた車両をご用意。料金・空き状況の確認とご予約は予約サイトから。</p>
                 </a>
                 <a class="business-service" href="#contact" style="--i:2">
                   <span class="biz-num">03</span>
@@ -2918,53 +2934,14 @@
               <div class="pricing-block">
                 <div class="pricing-block-head">
                   <div>
-                    <span class="pricing-block-label">— Price List</span>
-                    <h4 class="pricing-block-title">料金表</h4>
+                    <span class="pricing-block-label">— Price</span>
+                    <h4 class="pricing-block-title">料金・空き状況</h4>
                   </div>
                 </div>
-                <table class="pricing-table">
-                  <thead>
-                    <tr>
-                      <th>サービス</th>
-                      <th>短時間</th>
-                      <th>1日</th>
-                      <th>備考</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>学生向けカーシェア</td>
-                      <td class="pricing-amount">¥216 / 15分<br>¥864 / 60分</td>
-                      <td class="pricing-amount">¥6,600〜<span style="display:block;font-size:11px;font-weight:500;color:var(--text-soft);letter-spacing:0.02em;margin-top:4px;">+距離料金 ※1kmあたり¥16.5</span></td>
-                      <td>Patto会員登録・15分から利用可能</td>
-                    </tr>
-                    <tr>
-                      <td>レンタカー（コンパクト）</td>
-                      <td class="pricing-amount">¥1,100 / 1時間</td>
-                      <td class="pricing-amount">¥7,700</td>
-                      <td>学生・法人割引あり / <a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="line-inline">公式LINE予約</a></td>
-                    </tr>
-                    <tr>
-                      <td>レンタカー（SUV・ミニバン）</td>
-                      <td class="pricing-amount">¥2,200 / 1時間</td>
-                      <td class="pricing-amount">¥17,000</td>
-                      <td>学生・法人割引あり / <a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="line-inline">公式LINE予約</a></td>
-                    </tr>
-                    <tr>
-                      <td>キッチンカーレンタル</td>
-                      <td class="pricing-amount">－</td>
-                      <td class="pricing-amount">¥22,000</td>
-                      <td>イベント・開業用途 / 要打合せ</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p class="pricing-note">※ 表示価格は税込目安です。車種・利用期間・季節により変動するため、詳細は<a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="line-inline">公式LINE</a>またはお問い合わせフォームよりご確認ください。<br>※ 保険料・燃料代等が別途発生する場合があります。</p>
+                <p class="pricing-note">レンタカー・キッチンカー・家電レンタルの料金と空き状況は、予約サイトでご確認いただけます。そのままWebでご予約いただけます。学生向けカーシェアの料金はPattoアプリでご確認ください。</p>
                 <div class="pricing-cta-row">
-                  <a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="btn-booking btn-line">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 5.7 2 10.25c0 4.08 3.55 7.5 8.35 8.14.32.07.77.21.88.49.1.25.07.64.03.89l-.14.85c-.04.25-.2.98.86.53 1.06-.44 5.71-3.36 7.79-5.76C21.2 13.78 22 12.11 22 10.25 22 5.7 17.52 2 12 2ZM8.28 12.85H6.29a.53.53 0 0 1-.53-.53V8.34c0-.29.24-.53.53-.53s.53.24.53.53v3.45h1.46c.29 0 .53.24.53.53s-.24.53-.53.53Zm2.08-.53c0 .29-.24.53-.53.53a.53.53 0 0 1-.53-.53V8.34c0-.29.24-.53.53-.53s.53.24.53.53v3.98Zm4.79 0c0 .23-.15.43-.36.5a.55.55 0 0 1-.17.03.53.53 0 0 1-.43-.21l-2.04-2.77v2.45c0 .29-.24.53-.53.53a.53.53 0 0 1-.53-.53V8.34c0-.23.15-.43.36-.5a.53.53 0 0 1 .6.18l2.04 2.78V8.34c0-.29.24-.53.53-.53s.53.24.53.53v3.98Zm3.22-2.52c.29 0 .53.24.53.53s-.24.53-.53.53h-1.46v.93h1.46c.29 0 .53.24.53.53s-.24.53-.53.53h-1.99a.53.53 0 0 1-.53-.53V8.34c0-.29.24-.53.53-.53h1.99c.29 0 .53.24.53.53s-.24.53-.53.53h-1.46v.93h1.46Z"/></svg>
-                    公式LINEで予約・相談
-                  </a>
-                  <a href="skyward-pricelist.pdf" target="_blank" rel="noopener" class="btn-booking btn-booking-outline">詳細な料金はこちら</a>
+                  <a href="https://playmark0227-svg.github.io/sky-rent/" target="_blank" rel="noopener" class="btn-booking">料金・空き状況は予約サイトへ</a>
+                  <a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="btn-booking btn-booking-outline">公式LINEで相談</a>
                   <button type="button" class="btn-booking btn-booking-outline" onclick="document.getElementById('booking-modal').classList.add('active'); document.body.style.overflow='hidden';">予約方法を見る</button>
                 </div>
               </div>
@@ -2972,7 +2949,7 @@
               <!-- ===== 車両情報 =====
                    実車の写真が用意できたら、各 .vehicle-media 内の <svg>…</svg> を
                    <img src="images/car-xxx.jpg" alt="車種名"> に差し替えてください（CSS対応済み）。
-                   料金は skyward-pricelist.pdf（2026年6月改定版）に準拠。 -->
+                   料金は予約サイトに掲載 (ここには載せない)。 -->
               <div class="vehicle-block">
                 <div class="pricing-block-head">
                   <div>
@@ -2995,12 +2972,6 @@
                     <div class="vehicle-body">
                       <h5 class="vehicle-name">軽・コンパクトクラス</h5>
                       <p class="vehicle-spec">乗車定員 4〜5名（目安）／ AT車<br>15分単位・24時間いつでも貸出</p>
-                      <ul class="vehicle-price">
-                        <li><span>15分</span><b>¥216</b></li>
-                        <li><span>60分</span><b>¥864</b></li>
-                        <li><span>1日</span><b>¥6,600〜</b></li>
-                      </ul>
-                      <p class="vehicle-note">＋距離料金 ¥16.5/km ／ Pattoアプリで予約・学生証で会員登録（無料）</p>
                     </div>
                   </article>
 
@@ -3016,11 +2987,6 @@
                     <div class="vehicle-body">
                       <h5 class="vehicle-name">コンパクトカー</h5>
                       <p class="vehicle-spec">乗車定員 5名（目安）／ AT車<br>通勤・買い物・街乗りに</p>
-                      <ul class="vehicle-price">
-                        <li><span>1時間</span><b>¥1,100</b></li>
-                        <li><span>24時間</span><b>¥7,700</b></li>
-                      </ul>
-                      <p class="vehicle-note">学生・法人・二地域居住者は ¥1,100引き（24時間以上のご利用）</p>
                     </div>
                   </article>
 
@@ -3036,11 +3002,6 @@
                     <div class="vehicle-body">
                       <h5 class="vehicle-name">SUV</h5>
                       <p class="vehicle-spec">乗車定員 5名（目安）／ 積載力・走破性<br>アウトドア・冬道の長距離移動に</p>
-                      <ul class="vehicle-price">
-                        <li><span>1時間</span><b>¥2,200</b></li>
-                        <li><span>24時間</span><b>¥17,000</b></li>
-                      </ul>
-                      <p class="vehicle-note">学生・法人・二地域居住者は ¥1,100引き（24時間以上のご利用）</p>
                     </div>
                   </article>
 
@@ -3056,11 +3017,6 @@
                     <div class="vehicle-body">
                       <h5 class="vehicle-name">ミニバン</h5>
                       <p class="vehicle-spec">乗車定員 7〜8名（目安）／ 3列シート<br>家族旅行・送迎・グループ移動に</p>
-                      <ul class="vehicle-price">
-                        <li><span>1時間</span><b>¥2,200</b></li>
-                        <li><span>24時間</span><b>¥17,000</b></li>
-                      </ul>
-                      <p class="vehicle-note">学生・法人・二地域居住者は ¥1,100引き（24時間以上のご利用）</p>
                     </div>
                   </article>
 
@@ -3076,15 +3032,11 @@
                     <div class="vehicle-body">
                       <h5 class="vehicle-name">キッチンカー</h5>
                       <p class="vehicle-spec">調理設備搭載 ／ 電源・給排水対応<br>イベント出店・開業テスト・移動販売に</p>
-                      <ul class="vehicle-price">
-                        <li><span>24時間</span><b>¥22,000</b></li>
-                      </ul>
-                      <p class="vehicle-note">要打合せ ／ 守成クラブ会員は ¥3,000引き</p>
                     </div>
                   </article>
 
                 </div>
-                <p class="pricing-note">※ 乗車定員・装備は車両クラスの目安です。実車の車種・年式・装備の詳細は<a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="line-inline">公式LINE</a>にてお気軽にお問い合わせください。<br>※ 免責補償制度（CDW）¥1,100〜、ポータブル電源・カセットコンロ・炊飯器などの装備オプションもご用意しています。詳細は<a href="skyward-pricelist.pdf" target="_blank" rel="noopener">総合料金表（PDF）</a>をご覧ください。</p>
+                <p class="pricing-note">※ 乗車定員・装備は車両クラスの目安です。実車の車種・年式・装備の詳細は<a href="https://lin.ee/PuLt0Ig" target="_blank" rel="noopener" class="line-inline">公式LINE</a>にてお気軽にお問い合わせください。<br>※ 補償 (免責補償制度・安心保証コース) や、ポータブル電源・調理家電などの装備オプションもご用意しています。料金は<a href="https://playmark0227-svg.github.io/sky-rent/fleet.html" target="_blank" rel="noopener" class="line-inline">予約サイトの「車両と料金」</a>でご確認ください。</p>
               </div>
             </div>
           </div>
@@ -3092,7 +3044,34 @@
           <div class="business-tab-panel" data-panel="1">
             <div class="business-panel-inner">
               <div class="business-panel-head">
-                <span class="business-panel-num">— 02 / Creative</span>
+                <span class="business-panel-num">— 02 / Appliance</span>
+                <h3 class="business-panel-title">家電事業</h3>
+                <p class="business-panel-lead">イベント出店やアウトドア、急な来客や引っ越しのつなぎに。<br>ポータブル電源や調理家電を、必要な日数だけお貸しします。家電の販売も行っています。</p>
+                <div class="panel-action-row">
+                  <a href="https://playmark0227-svg.github.io/sky-rent/search.html?category=cat-appliance" target="_blank" rel="noopener" class="btn-booking">家電レンタルの料金・空き状況を見る</a>
+                  <a href="#contact" class="btn-booking btn-booking-outline">お問い合わせ</a>
+                </div>
+              </div>
+              <div class="business-services-grid">
+                <a class="business-service" href="https://playmark0227-svg.github.io/sky-rent/search.html?category=cat-appliance" target="_blank" rel="noopener" style="--i:0">
+                  <span class="biz-num">01</span>
+                  <h4>家電レンタル</h4>
+                  <p>ポータブル電源・ポータブル冷蔵冷凍庫・電子レンジ・炊飯器など。車を借りなくても、家電だけでお借りいただけます (北見本店でお受け取り・ご返却)。レンタカー・キッチンカーのオプションとしても追加できます。</p>
+                </a>
+                <a class="business-service" href="#contact" style="--i:1">
+                  <span class="biz-num">02</span>
+                  <h4>家電販売</h4>
+                  <p>家電の販売も行っています。お探しの家電やご予算など、お気軽にお問い合わせください。</p>
+                </a>
+              </div>
+              <a href="#contact" class="btn-more">この事業について問い合わせる</a>
+            </div>
+          </div>
+
+          <div class="business-tab-panel" data-panel="2">
+            <div class="business-panel-inner">
+              <div class="business-panel-head">
+                <span class="business-panel-num">— 03 / Creative</span>
                 <h3 class="business-panel-title">クリエイティブ事業</h3>
                 <p class="business-panel-lead">SNS運用からWEB制作、ドローン撮影までワンストップでクリエイティブをサポート。<br>Instagram・X・Threads・TikTok・Facebookの主要SNSに対応し、戦略立案から運用代行まで一気通貫でご支援します。</p>
               </div>
